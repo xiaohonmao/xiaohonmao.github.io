@@ -2,19 +2,19 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Hexo</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="Hexo">
+  <title>JavaScript 冒泡算法详解 | Hexo</title>
+  <meta name="keywords" content=" javascript ">
+  <meta name="description" content="JavaScript 冒泡算法详解 | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="GET 和 POST两种基本请求方法的区别 GET在浏览器回退时是无害的，而POST会再次提交请求 GET产生的URL地址可以被BookMark（这个URL地址你可以作为书签收藏起来），而POST不可以 GET请求会被浏览器主动cache（缓存），而POST不会，除非手动设置 GET请求只能进行URL编码，而POST支持多种编码方式 GET请求参数会被完整保留在浏览器历史记录里，而POST中的参数">
-<meta name="keywords" content="前端 JavaScript">
+<meta name="description" content="冒泡算法简单来说就是让数组中需要比较大小的数据，像气泡一样，小的往上冒，大的往下沉，由此得出由小到大按顺序排列的数组。我总结了两种方法实现，一种是从头部开始比较，另一种是从尾部开始比较。   从头部开始比较： 1var arr &amp;#x3D; [5,7,1,2,9,8];23for(var i &amp;#x3D; 0;i&amp;lt;arr.length-1;i++)&amp;#123;4​        for(v">
+<meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="get与post的异同">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;get%E4%B8%8Epost%E7%9A%84%E5%BC%82%E5%90%8C&#x2F;index.html">
+<meta property="og:title" content="JavaScript 冒泡算法详解">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;13&#x2F;JavaScript-%E5%86%92%E6%B3%A1%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="GET 和 POST两种基本请求方法的区别 GET在浏览器回退时是无害的，而POST会再次提交请求 GET产生的URL地址可以被BookMark（这个URL地址你可以作为书签收藏起来），而POST不可以 GET请求会被浏览器主动cache（缓存），而POST不会，除非手动设置 GET请求只能进行URL编码，而POST支持多种编码方式 GET请求参数会被完整保留在浏览器历史记录里，而POST中的参数">
+<meta property="og:description" content="冒泡算法简单来说就是让数组中需要比较大小的数据，像气泡一样，小的往上冒，大的往下沉，由此得出由小到大按顺序排列的数组。我总结了两种方法实现，一种是从头部开始比较，另一种是从尾部开始比较。   从头部开始比较： 1var arr &amp;#x3D; [5,7,1,2,9,8];23for(var i &amp;#x3D; 0;i&amp;lt;arr.length-1;i++)&amp;#123;4​        for(v">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-12-02T12:51:45.528Z">
+<meta property="og:updated_time" content="2019-12-13T14:21:26.723Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -51,7 +51,7 @@
 </div>
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
     <img class="avatar" src="/img/avatar.jpg" />
@@ -206,7 +206,15 @@
 
 
 <ul>
-    <li><div class="all active">全部文章<small>(2)</small></div></li>
+    <li><div class="all active">全部文章<small>(4)</small></div></li>
+    
+        
+            
+            <li><div data-rel="前端">前端<small>(2)</small></div>
+                
+            </li>
+            
+        
     
 </ul>
 <div class="left-bottom">
@@ -218,7 +226,7 @@
     </div>
     <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="2">
+<input type="hidden" id="yelog_site_posts_number" value="4">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -253,7 +261,7 @@
     <div class="tags-list">
     
     <li class="article-tag-list-item">
-        <a class="color4">前端 JavaScript</a>
+        <a class="color1">javascript</a>
     </li>
     
     <div class="clearfix"></div>
@@ -261,6 +269,22 @@
 
     
     <nav id="title-list-nav">
+        
+        <a  class="前端 "
+           href="/2019/12/13/JavaScript-%E5%86%92%E6%B3%A1%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/"
+           data-tag="javascript"
+           data-author="" >
+            <span class="post-title" title="JavaScript 冒泡算法详解">JavaScript 冒泡算法详解</span>
+            <span class="post-date" title="2019-12-13 22:13:27">2019/12/13</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2019/12/02/get%E4%B8%8Epost%E7%9A%84%E5%BC%82%E5%90%8C/"
+           data-tag="javascript"
+           data-author="" >
+            <span class="post-title" title="get与post的异同">get与post的异同</span>
+            <span class="post-date" title="2019-12-02 20:32:22">2019/12/02</span>
+        </a>
         
         <a  class=""
            href="/2019/12/02/hello-world/"
@@ -271,11 +295,11 @@
         </a>
         
         <a  class=""
-           href="/2019/12/02/get%E4%B8%8Epost%E7%9A%84%E5%BC%82%E5%90%8C/"
-           data-tag="前端 JavaScript"
+           href="/2019/12/05/%E6%8F%92%E4%BB%B6%E6%95%B4%E7%90%86/"
+           data-tag=""
            data-author="" >
-            <span class="post-title" title="get与post的异同">get与post的异同</span>
-            <span class="post-date" title="2019-12-02 20:32:22">2019/12/02</span>
+            <span class="post-title" title="插件整理">插件整理</span>
+            <span class="post-date" title="2019-12-05 18:23:48">2019/12/05</span>
         </a>
         
     </nav>
@@ -288,12 +312,55 @@
         </div>
     </div>
 </aside>
-<div class="post index">
+<div class="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-JavaScript-冒泡算法详解" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Why-Blog"><span class="toc-text">Why Blog</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#对博客的理解"><span class="toc-text">对博客的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于叶落阁"><span class="toc-text">关于叶落阁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#博客平台"><span class="toc-text">博客平台</span></a></li></ol></li></ol>
+        <h1 class="article-title">JavaScript 冒泡算法详解</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a  data-rel="前端">前端</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a class="color1">javascript</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-12-13 22:21:26'>2019-12-13 22:13</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        
     
 <style>
     .left-col .switch-btn,
@@ -306,36 +373,74 @@
     }
 </style>
 </div>
-            <h1 id="Why-Blog"><a href="#Why-Blog" class="headerlink" title="Why Blog"></a>Why Blog</h1><h2 id="对博客的理解"><a href="#对博客的理解" class="headerlink" title="对博客的理解"></a>对博客的理解</h2><p>喜欢写Blog的人，会经历三个阶段。</p>
-<blockquote>
-<p>第一阶段，刚接触Blog，觉得很新鲜，试着选择一个免费空间来写。</p>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>冒泡算法简单来说就是让数组中需要比较大小的数据，像气泡一样，小的往上冒，大的往下沉，由此得出由小到大按顺序排列的数组。我总结了两种方法实现，一种是从头部开始比较，另一种是从尾部开始比较。</p>
 </blockquote>
 <blockquote>
-<p>第二阶段，发现免费空间限制太多，就自己购买域名和空间，搭建独立博客。</p>
+<p>从头部开始比较：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [5,7,1,2,9,8];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">for(var i &#x3D; 0;i&lt;arr.length-1;i++)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">​        for(var j &#x3D; 0;j&lt;arr.length-i-1;j++)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">​            if(arr[j]&gt;arr[j+1])&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">​               var t;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">​               t &#x3D; arr[j];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">​               arr[j] &#x3D; arr[j+1];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">​               arr[j+1] &#x3D; t;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">​            &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">​        &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">​    &#125;</span></pre></td></tr></table></figure>
 </blockquote>
 <blockquote>
-<p>第三阶段，觉得独立博客的管理太麻烦，最好在保留控制权的前提下，让别人来管，自己只负责写文章。</p>
+<p>其中第一个 for 循环控制比较轮次，因为 arr.length 从一开始数为 6，但是 for 循环里 i 从 0 开始，故需 arr.length - 1 ，但由于比较5轮次后得到5个已经排好序的数据，所以最后一个数不用比较，因此要小于 arr.length - 1 。 第二个for循环进行比较大小和交换位置，因为比较一轮会把处于底部的最小值排到最顶，所以接下来就不用再比较它了，只需比较剩余的数即可，所以需要小于 arr.length - 1 -i。</p>
 </blockquote>
-<p>我们每个人的在网络上产生的数据越来越多，这些信息是我们在互联网上存在过的痕迹，值得我们认真对待。但是它们被分散分布在各个网站上。很多时候我们很难将它们聚合在一起，而且各个网站的信息排布方式也没有办法自由控制，所以我们需要一个可以由自己主宰的空间——博客。</p>
-<p>通过博客，我们可以记录自己的生活和成长的轨迹。它不像 Twitter 那样碎片化，也不像 Facebook 那样关系化，它是私人的空间。</p>
-<h2 id="关于叶落阁"><a href="#关于叶落阁" class="headerlink" title="关于叶落阁"></a>关于叶落阁</h2><p><strong>叶落阁</strong> 是阿杰（杨玉杰）的个人站。</p>
-<p>到目前为止已经写了<code class="article_number"></code>篇文章， 共<code class="site_word_count"></code>字。</p>
-<p>本站访问人数：<code class="site_uv"></code>人次 ， 访问量：<code class="site_pv"></code>次</p>
-<h2 id="博客平台"><a href="#博客平台" class="headerlink" title="博客平台"></a>博客平台</h2><p>这个博客通过 <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> 生成，部署在 <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a>，主题 <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank" rel="noopener">3-hexo</a> 已经在github上开源</p>
-<p>主要功能：</p>
-<ul>
-<li>搜索支持文章标题、标签(#标签)、作者(@作者)</li>
-<li>pad/手机等移动端适配</li>
-<li>页面全局快捷键 <a href='http://yelog.org/2017/03/24/3-hexo-shortcuts/' target="_blank" rel="noopener">3-hexo快捷键说明</a></li>
-</ul>
+<blockquote>
+<p>第一轮：5 7 1 2 9 8         5 1 7 2 9 8         5 1 2 7 9 8 </p>
+</blockquote>
+<blockquote>
+<p>第二轮：5 1 2 7 8 9         1 5 2 7 8 9         </p>
+</blockquote>
+<blockquote>
+<p>比较结束：1 2 5 7 8 9 </p>
+</blockquote>
+<blockquote>
+<p>从尾部开始比较：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">var arr &#x3D; [5,7,1,2,9,8];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">for(var i &#x3D; 0;i&lt;arr.length-1;i++)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">​        for(var j &#x3D; arr.length-i-1;j&gt;&#x3D;0;j--)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">​            if(arr[j]&gt;arr[j+1])&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">​               var t;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">​               t &#x3D; arr[j];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">​               arr[j] &#x3D; arr[j+1];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">​               arr[j+1] &#x3D; t;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">​            &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">​        &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">​    &#125;</span></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>第一轮：5 7 1 2 9 8         5 7 1 2 8 9         5 1 7 2 8 9</p>
+</blockquote>
+<blockquote>
+<p>第二轮：1 5 7 2 8 9         1 5 2 7 8 9         </p>
+</blockquote>
+<blockquote>
+<p>比较结束：1 2 5 7 8 9 </p>
+</blockquote>
 
-        </article>
-        
-        <p>
-            <a  class="dashang" onclick="dashangToggle()">赏</a>
-        </p>
-        
-        
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>JavaScript 冒泡算法详解</p>
+    
+    <p><span class="copy-title">本文作者:</span><a  title="xia xia">xia xia</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-12-13, 22:13:27</p>
+    <p><span class="copy-title">最后更新:</span>2019-12-13, 22:21:26</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/13/JavaScript-%E5%86%92%E6%B3%A1%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" title="JavaScript 冒泡算法详解">http://yoursite.com/2019/12/13/JavaScript-%E5%86%92%E6%B3%A1%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">©2016-2019 Yelog</p>
@@ -383,7 +488,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#前端 JavaScript',],
+            'data': ['#javascript',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
