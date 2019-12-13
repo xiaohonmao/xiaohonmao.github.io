@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>插件整理 | Hexo</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="插件整理 | Hexo">
+  <title>使用D3渲染柱状图 | Hexo</title>
+  <meta name="keywords" content=" 数据可视化 D3 ">
+  <meta name="description" content="使用D3渲染柱状图 | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="冒泡算法简单来说就是让数组中需要比较大小的数据，像气泡一样，小的往上冒，大的往下沉，由此得出由小到大按顺序排列的数组。我总结了两种方法实现，一种是从头部开始比较，另一种是从尾部开始比较。   从头部开始比较： 1var arr &#x3D; [5,7,1,2,9,8];23for(var i &#x3D; 0;i&amp;lt;arr.length-1;i++)&amp;#123;4        for(var j &#x3D; 0;j&amp;">
 <meta name="keywords" content="javascript">
@@ -326,19 +326,31 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-插件整理" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-使用D3渲染柱状图" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">插件整理</h1>
+        <h1 class="article-title">使用D3渲染柱状图</h1>
     
     <div class="article-meta">
         
         
         
+        <span class="book">
+            
+                <a  data-rel="前端">前端</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a class="color4">数据可视化 D3</a>
+            
+        </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-12-05 18:23:48'>2019-12-05 18:23</time>
+        创建时间:<time class="date" title='更新时间: 2019-12-13 23:00:09'>2019-12-13 22:32</time>
         
     </div>
     <div class="article-meta">
@@ -376,7 +388,144 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>使用D3.js实现了一个柱状图的渲染，点击添加按钮，会新增一个柱状图与之前柱状图均分画布大小，鼠标划过有高亮效果，点击柱状图可实现排序，点击第二次可实现反向排序</p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;script src=&quot;./d3.v5.min.js&quot;&gt;&lt;/script&gt;
+    &lt;style&gt;
+        #app {
+            width: 600px;
+            height: 500px;
+            margin: 0 auto;
+        }
+
+        .tool {
+            text-align: center;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
+    &lt;hr&gt;
+    &lt;div class=&quot;tool&quot;&gt;
+        &lt;button id=&quot;btn-add&quot;&gt;add&lt;/button&gt;
+        &lt;button id=&quot;btn-update&quot;&gt;update&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        var container = d3.select(&#39;#app&#39;);
+
+        // 封装组件  构造函数
+        function Bar(options) {
+            this.padding = 10;
+            this.options = options;
+            this.datalist = options.data;
+            this.container = d3.select(options.el);
+            this.sort_flag = false;
+            this.init();
+        }
+
+        Bar.prototype = {
+            // 入口函数
+            init() {
+                this.initSVG();
+                this.initScale();
+                this.renderRect();
+                this.initEvent();
+            },
+            // 初始化画布
+            initSVG() {
+                this.svg = this.container.append(&#39;svg&#39;)
+                    .attr(&#39;width&#39;, this.options.width)
+                    .attr(&#39;height&#39;, this.options.height)
+                    .style(&#39;background&#39;, &#39;#efefef&#39;)
+            },
+            initEvent() {
+                d3.select(&quot;#btn-add&quot;).on(&#39;click&#39;, () =&gt; {
+                    let num = Math.ceil(Math.random() * 450);
+                    this.datalist.push(num);
+                    this.initScale();
+                    this.renderRect();
+                })
+            },
+            // 绘制柱状图
+            renderRect() {
+                // 添加新数据
+                this.svg.selectAll(&#39;rect&#39;)
+                    .data(this.datalist)
+                    .enter()
+                    .append(&#39;rect&#39;)
+                    .style(&#39;fill&#39;, &#39;green&#39;)
+                    .on(&#39;mouseover&#39;, function (d, i) {
+                        d3.select(this).style(&#39;fill&#39;, &#39;orange&#39;)
+                    })
+                    .on(&#39;mouseout&#39;, function () {
+                        d3.select(this).style(&#39;fill&#39;, &#39;green&#39;)
+                    })
+                    .on(&#39;click&#39;, (d, i) =&gt; {
+                        this.sort();
+                    });
+
+                // 数据更新 
+                this.svg.selectAll(&#39;rect&#39;)
+                    .data(this.datalist)
+                    .attr(&#39;width&#39;, this.x_scale.bandwidth())
+                    .attr(&#39;x&#39;, (d, i) =&gt; {
+                        return this.x_scale(i);
+                    })
+                    .attr(&#39;y&#39;, (d) =&gt; {
+                        return this.options.height - this.y_scale(d);
+                    })
+                    .attr(&#39;height&#39;, (d, i) =&gt; {
+                        return this.y_scale(d);
+                    });
+            },
+            sort() {
+                d3.selectAll(&#39;rect&#39;).sort((a, b) =&gt; {
+                    return this.sort_flag ? d3.descending(a, b) : d3.ascending(a, b);
+                })
+                    .transition()
+                    .duration(500)
+                    .attr(&#39;x&#39;, (d, i) =&gt; {
+                        return this.x_scale(i);
+                    })
+                this.sort_flag = !this.sort_flag;
+            },
+            initScale() {
+                this.x_scale = d3.scaleBand().domain(d3.range(this.datalist.length))
+                    .range([this.padding, this.options.width - this.padding * 2]).paddingInner(0.1);
+
+                this.y_scale = d3.scaleLinear().domain([0, d3.max(this.datalist)])
+                    .range([this.padding, this.options.height - this.padding * 2])
+            }
+        }
+
+        function mockData() {
+            let datalist = [];
+            for (let i = 0; i &lt; 5; i++) {
+                let num = Math.ceil(Math.random() * 450);
+                datalist.push(num);
+            }
+            return datalist;
+        }
+
+        new Bar({
+            el: &#39;#app&#39;,
+            width: 500,
+            height: 400,
+            data: mockData()
+        })
+    &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
     </div>
@@ -389,12 +538,12 @@
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>插件整理</p>
+    <p><span class="copy-title">文章标题:</span>使用D3渲染柱状图</p>
     
     <p><span class="copy-title">本文作者:</span><a  title="xia xia">xia xia</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-12-05, 18:23:48</p>
-    <p><span class="copy-title">最后更新:</span>2019-12-05, 18:23:48</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/05/%E6%8F%92%E4%BB%B6%E6%95%B4%E7%90%86/" title="插件整理">http://yoursite.com/2019/12/05/%E6%8F%92%E4%BB%B6%E6%95%B4%E7%90%86/</a>
+    <p><span class="copy-title">发布时间:</span>2019-12-13, 22:32:13</p>
+    <p><span class="copy-title">最后更新:</span>2019-12-13, 23:00:09</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/13/%E4%BD%BF%E7%94%A8D3%E6%B8%B2%E6%9F%93%E6%9F%B1%E7%8A%B6%E5%9B%BE/" title="使用D3渲染柱状图">http://yoursite.com/2019/12/13/%E4%BD%BF%E7%94%A8D3%E6%B8%B2%E6%9F%93%E6%9F%B1%E7%8A%B6%E5%9B%BE/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
