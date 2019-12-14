@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="主要功能描述 1、生成画布 2、生成模拟数据（数据是对象） 3、添加散点、指定坐标、添加颜色 4、添加坐标轴x轴和y轴（先添加比例尺，再添加坐标轴），使用了分组，方便后面组合使用 5、有些散点会溢出画布，做了裁切 6、点击外部按钮做数据的更新，坐标轴的也会更新，同时添加了动画 源码 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang&#x3D;&amp;quot;en&amp;quot;&amp;gt;  &amp;l">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-12-14T05:00:16.352Z">
+<meta property="og:updated_time" content="2019-12-14T05:09:42.245Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -358,7 +358,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-12-13 23:00:09'>2019-12-13 22:32</time>
+        创建时间:<time class="date" title='更新时间: 2019-12-14 13:13:59'>2019-12-13 22:32</time>
         
     </div>
     <div class="article-meta">
@@ -397,6 +397,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>使用D3.js实现了一个柱状图的渲染，点击添加按钮，会新增一个柱状图与之前柱状图均分画布大小，鼠标划过有高亮效果，点击柱状图可实现排序，点击第二次可实现反向排序</p>
+<p>点击更新会将数据全部重新生成并渲染出来</p>
 <pre><code class="html">&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 
@@ -420,6 +421,7 @@
 &lt;/head&gt;
 
 &lt;body&gt;
+    &lt;!-- 柱状图 --&gt;
     &lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
     &lt;hr&gt;
     &lt;div class=&quot;tool&quot;&gt;
@@ -427,7 +429,7 @@
         &lt;button id=&quot;btn-update&quot;&gt;update&lt;/button&gt;
     &lt;/div&gt;
     &lt;script&gt;
-        var container = d3.select(&#39;#app&#39;);
+        // var container = d3.select(&#39;#app&#39;);
 
         // 封装组件  构造函数
         function Bar(options) {
@@ -445,6 +447,7 @@
                 this.initSVG();
                 this.initScale();
                 this.renderRect();
+                this.renderText();
                 this.initEvent();
             },
             // 初始化画布
@@ -459,6 +462,15 @@
                     let num = Math.ceil(Math.random() * 450);
                     this.datalist.push(num);
                     this.initScale();
+                    this.renderText();
+                    this.renderRect();
+                })
+
+                d3.select(&quot;#btn-update&quot;).on(&#39;click&#39;, () =&gt; {
+                    let num = Math.ceil(Math.random() * 450);
+                    this.datalist = mockData();
+                    this.initScale();
+                    this.renderText();
                     this.renderRect();
                 })
             },
@@ -492,8 +504,37 @@
                     })
                     .attr(&#39;height&#39;, (d, i) =&gt; {
                         return this.y_scale(d);
-                    });
+                    })
+                    .exit()
+                    .remove()
             },
+            // 添加文本信息
+            renderText() {
+                // 添加新数据
+                this.svg.selectAll(&#39;text&#39;)
+                    .data(this.datalist)
+                    .enter()
+                    .append(&#39;text&#39;)
+                    .text(function (d, i) {
+                        return d;
+                    })
+                    .style(&#39;fill&#39;, &#39;red&#39;)
+
+
+                // 数据更新 
+                this.svg.selectAll(&#39;text&#39;)
+                    .data(this.datalist)
+                    .attr(&#39;x&#39;, (d, i) =&gt; {
+                        return this.x_scale(i) + this.x_scale.bandwidth() / 2;
+                    })
+                    .attr(&#39;y&#39;, (d) =&gt; {
+                        return this.options.height - this.y_scale(d) - 5;
+                    })
+                    .attr(&#39;text-anchor&#39;, &quot;middle&quot;)
+                    .exit()
+                    .remove()
+            },
+            // 排序
             sort() {
                 d3.selectAll(&#39;rect&#39;).sort((a, b) =&gt; {
                     return this.sort_flag ? d3.descending(a, b) : d3.ascending(a, b);
@@ -503,8 +544,18 @@
                     .attr(&#39;x&#39;, (d, i) =&gt; {
                         return this.x_scale(i);
                     })
+
+                d3.selectAll(&#39;text&#39;).sort((a, b) =&gt; {
+                    return this.sort_flag ? d3.descending(a, b) : d3.ascending(a, b);
+                })
+                    .transition()
+                    .duration(500)
+                    .attr(&#39;x&#39;, (d, i) =&gt; {
+                        return this.x_scale(i) + this.x_scale.bandwidth() / 2;
+                    })
                 this.sort_flag = !this.sort_flag;
             },
+            // 比例尺
             initScale() {
                 this.x_scale = d3.scaleBand().domain(d3.range(this.datalist.length))
                     .range([this.padding, this.options.width - this.padding * 2]).paddingInner(0.1);
@@ -550,7 +601,7 @@
     
     <p><span class="copy-title">本文作者:</span><a  title="xia xia">xia xia</a></p>
     <p><span class="copy-title">发布时间:</span>2019-12-13, 22:32:13</p>
-    <p><span class="copy-title">最后更新:</span>2019-12-13, 23:00:09</p>
+    <p><span class="copy-title">最后更新:</span>2019-12-14, 13:13:59</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/13/%E4%BD%BF%E7%94%A8D3%E6%B8%B2%E6%9F%93%E6%9F%B1%E7%8A%B6%E5%9B%BE/" title="使用D3渲染柱状图">http://yoursite.com/2019/12/13/%E4%BD%BF%E7%94%A8D3%E6%B8%B2%E6%9F%93%E6%9F%B1%E7%8A%B6%E5%9B%BE/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
