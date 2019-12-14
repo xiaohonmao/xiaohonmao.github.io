@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>插件整理 | Hexo</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="插件整理 | Hexo">
+  <title>使用D3渲染散点图 | Hexo</title>
+  <meta name="keywords" content=" 数据可视化 D3 ">
+  <meta name="description" content="使用D3渲染散点图 | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="使用D3.js实现了一个柱状图的渲染，点击添加按钮，会新增一个柱状图与之前柱状图均分画布大小，鼠标划过有高亮效果，点击柱状图可实现排序，点击第二次可实现反向排序 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang&#x3D;&amp;quot;en&amp;quot;&amp;gt;  &amp;lt;head&amp;gt;     &amp;lt;meta charset&#x3D;&amp;quot;UTF-8&amp;quot;&amp;gt;     &amp;lt">
 <meta name="keywords" content="数据可视化 D3">
@@ -334,19 +334,31 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-插件整理" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-使用D3渲染散点图" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">插件整理</h1>
+        <h1 class="article-title">使用D3渲染散点图</h1>
     
     <div class="article-meta">
         
         
         
+        <span class="book">
+            
+                <a  data-rel="前端">前端</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a class="color4">数据可视化 D3</a>
+            
+        </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-12-05 18:23:48'>2019-12-05 18:23</time>
+        创建时间:<time class="date" title='更新时间: 2019-12-14 13:00:16'>2019-12-14 12:57</time>
         
     </div>
     <div class="article-meta">
@@ -384,7 +396,175 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>主要功能描述</p>
+<p>1、生成画布</p>
+<p>2、生成模拟数据（数据是对象）</p>
+<p>3、添加散点、指定坐标、添加颜色</p>
+<p>4、添加坐标轴x轴和y轴（先添加比例尺，再添加坐标轴），使用了分组，方便后面组合使用</p>
+<p>5、有些散点会溢出画布，做了裁切</p>
+<p>6、点击外部按钮做数据的更新，坐标轴的也会更新，同时添加了动画</p>
+<p>源码</p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;script src=&quot;./d3.v5.min.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;!-- 散点图 --&gt;
+    &lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
+    &lt;hr&gt;
+    &lt;button id=&quot;btn-update&quot;&gt;update&lt;/button&gt;
+    &lt;script&gt;
+        const svg_width = 600;
+        const svg_height = 450;
+        const padding = 30;
+        const colors = d3.schemeCategory10;
+        var container = d3.select(&#39;#app&#39;);
+        // 生成画布
+        var svg = container.append(&#39;svg&#39;)
+            .attr(&#39;width&#39;, svg_width)
+            .attr(&#39;height&#39;, svg_height)
+            .style(&#39;background&#39;, &#39;#efefef&#39;)
+
+        // 生成模拟数据
+        var dataset = [];
+        function mockData() {
+            dataset = [];
+            for (let i = 0; i &lt; 10; i++) {
+                let x = Math.ceil(Math.random() * 400);
+                let y = Math.ceil(Math.random() * 400);
+                dataset.push({
+                    x,
+                    y
+                })
+            }
+        }
+        mockData();
+
+        // 添加散点
+        function addCircle() {
+            svg.append(&#39;g&#39;)
+                .attr(&#39;class&#39;, &#39;grop-circle&#39;)
+                .attr(&#39;clip-path&#39;, &#39;url(#rect-clip-path)&#39;)
+                .selectAll(&#39;circle&#39;)
+                .data(dataset)
+                .enter()
+                .append(&#39;circle&#39;)
+                .attr(&#39;r&#39;, 15)
+                .attr(&#39;cx&#39;, (d, i) =&gt; {
+                    return d.x;
+                })
+                .attr(&#39;cy&#39;, (d, i) =&gt; {
+                    return d.y;
+                })
+                .attr(&#39;fill&#39;, (d, i) =&gt; {
+                    return colors[i];
+                })
+                .on(&#39;click&#39;, function (d) {
+                    alert(d.x);
+                })
+        }
+        addCircle();
+
+        // 添加坐标轴
+        function addAxis() {
+            // x轴的线性比例尺
+            this.x_scale = d3.scaleLinear()
+                .domain([0, d3.max(dataset, (d) =&gt; {
+                    return d.x;
+                })])
+                .range([0, svg_width - padding * 2]);
+
+            // y轴的线性比例尺
+            this.y_scale = d3.scaleLinear()
+                .domain([0, d3.max(dataset, (d) =&gt; {
+                    return d.y;
+                })])
+                .range([svg_height - padding * 2, 0]);
+
+            // x轴的坐标轴
+            this.x_axis = d3.axisBottom(x_scale);
+            svg.append(&#39;g&#39;)
+                .attr(&#39;id&#39;, &#39;x_axis&#39;)
+                .call(this.x_axis)
+                .attr(&#39;transform&#39;, `translate(${padding},${svg_height - padding})`);
+
+            // y轴的坐标轴
+            this.y_axis = d3.axisLeft(y_scale);
+            svg.append(&#39;g&#39;)
+                .attr(&#39;id&#39;, &#39;y_axis&#39;)
+                .call(this.y_axis)
+                .attr(&#39;transform&#39;, `translate(${padding},${padding})`);
+        }
+        addAxis();
+
+        // 添加裁切路径
+        function addClipPath() {
+            svg.append(&#39;clipPath&#39;)
+                .attr(&#39;id&#39;, &quot;rect-clip-path&quot;)
+                .append(&#39;rect&#39;)
+                .attr(&#39;x&#39;, padding)
+                .attr(&#39;y&#39;, padding)
+                .attr(&#39;width&#39;, svg_width - padding * 2)
+                .attr(&#39;height&#39;, svg_height - padding * 2)
+        }
+        addClipPath();
+
+
+        // 数据更新
+        d3.select(&#39;#btn-update&#39;).on(&#39;click&#39;, () =&gt; {
+            mockData();
+
+            // 更新比例尺
+            this.x_scale.domain([0, d3.max(dataset, (d) =&gt; {
+                return d.x;
+            })])
+
+            this.y_scale.domain([0, d3.max(dataset, (d) =&gt; {
+                return d.y;
+            })])
+
+             // 更新坐标轴
+            this.x_axis = d3.axisBottom(x_scale);
+            svg.select(&#39;#x_axis&#39;)
+                .transition()
+                .duration(500)
+                .call(this.x_axis);
+
+            this.y_axis = d3.axisLeft(y_scale);
+            svg.select(&#39;#y_axis&#39;)
+                .transition()
+                .duration(500)
+                .call(this.y_axis);
+
+            // 更新数据
+            svg.select(&#39;.grop-circle&#39;)
+                .selectAll(&#39;circle&#39;)
+                .data(dataset)
+                .transition()
+                .duration(500)
+                .attr(&#39;cx&#39;, (d, i) =&gt; {
+                    return d.x;
+                })
+                .attr(&#39;cy&#39;, (d, i) =&gt; {
+                    return d.y;
+                })
+                .attr(&#39;fill&#39;, (d, i) =&gt; {
+                    return colors[i];
+                })
+        })
+    &lt;/script&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
     </div>
@@ -397,12 +577,12 @@
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>插件整理</p>
+    <p><span class="copy-title">文章标题:</span>使用D3渲染散点图</p>
     
     <p><span class="copy-title">本文作者:</span><a  title="xia xia">xia xia</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-12-05, 18:23:48</p>
-    <p><span class="copy-title">最后更新:</span>2019-12-05, 18:23:48</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/05/%E6%8F%92%E4%BB%B6%E6%95%B4%E7%90%86/" title="插件整理">http://yoursite.com/2019/12/05/%E6%8F%92%E4%BB%B6%E6%95%B4%E7%90%86/</a>
+    <p><span class="copy-title">发布时间:</span>2019-12-14, 12:57:30</p>
+    <p><span class="copy-title">最后更新:</span>2019-12-14, 13:00:16</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/14/%E4%BD%BF%E7%94%A8D3%E6%B8%B2%E6%9F%93%E6%95%A3%E7%82%B9%E5%9B%BE/" title="使用D3渲染散点图">http://yoursite.com/2019/12/14/%E4%BD%BF%E7%94%A8D3%E6%B8%B2%E6%9F%93%E6%95%A3%E7%82%B9%E5%9B%BE/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>

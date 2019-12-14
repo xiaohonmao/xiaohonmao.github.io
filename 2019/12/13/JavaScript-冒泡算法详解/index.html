@@ -6,15 +6,15 @@
   <meta name="keywords" content=" javascript ">
   <meta name="description" content="JavaScript 冒泡算法详解 | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="冒泡算法简单来说就是让数组中需要比较大小的数据，像气泡一样，小的往上冒，大的往下沉，由此得出由小到大按顺序排列的数组。我总结了两种方法实现，一种是从头部开始比较，另一种是从尾部开始比较。   从头部开始比较： 1var arr &#x3D; [5,7,1,2,9,8];23for(var i &#x3D; 0;i&amp;lt;arr.length-1;i++)&amp;#123;4        for(var j &#x3D; 0;j&amp;">
-<meta name="keywords" content="javascript">
+<meta name="description" content="使用D3.js实现了一个柱状图的渲染，点击添加按钮，会新增一个柱状图与之前柱状图均分画布大小，鼠标划过有高亮效果，点击柱状图可实现排序，点击第二次可实现反向排序 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang&#x3D;&amp;quot;en&amp;quot;&amp;gt;  &amp;lt;head&amp;gt;     &amp;lt;meta charset&#x3D;&amp;quot;UTF-8&amp;quot;&amp;gt;     &amp;lt">
+<meta name="keywords" content="数据可视化 D3">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript 冒泡算法详解">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;13&#x2F;JavaScript-%E5%86%92%E6%B3%A1%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3&#x2F;index.html">
+<meta property="og:title" content="使用D3渲染柱状图">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;13&#x2F;%E4%BD%BF%E7%94%A8D3%E6%B8%B2%E6%9F%93%E6%9F%B1%E7%8A%B6%E5%9B%BE&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="冒泡算法简单来说就是让数组中需要比较大小的数据，像气泡一样，小的往上冒，大的往下沉，由此得出由小到大按顺序排列的数组。我总结了两种方法实现，一种是从头部开始比较，另一种是从尾部开始比较。   从头部开始比较： 1var arr &#x3D; [5,7,1,2,9,8];23for(var i &#x3D; 0;i&amp;lt;arr.length-1;i++)&amp;#123;4        for(var j &#x3D; 0;j&amp;">
+<meta property="og:description" content="使用D3.js实现了一个柱状图的渲染，点击添加按钮，会新增一个柱状图与之前柱状图均分画布大小，鼠标划过有高亮效果，点击柱状图可实现排序，点击第二次可实现反向排序 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang&#x3D;&amp;quot;en&amp;quot;&amp;gt;  &amp;lt;head&amp;gt;     &amp;lt;meta charset&#x3D;&amp;quot;UTF-8&amp;quot;&amp;gt;     &amp;lt">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-12-13T15:06:53.124Z">
+<meta property="og:updated_time" content="2019-12-13T15:00:09.247Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -206,11 +206,11 @@
 
 
 <ul>
-    <li><div class="all active">全部文章<small>(5)</small></div></li>
+    <li><div class="all active">全部文章<small>(6)</small></div></li>
     
         
             
-            <li><div data-rel="前端">前端<small>(3)</small></div>
+            <li><div data-rel="前端">前端<small>(4)</small></div>
                 
             </li>
             
@@ -226,7 +226,7 @@
     </div>
     <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="5">
+<input type="hidden" id="yelog_site_posts_number" value="6">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -275,14 +275,6 @@
     <nav id="title-list-nav">
         
         <a  class="前端 "
-           href="/2019/12/02/get%E4%B8%8Epost%E7%9A%84%E5%BC%82%E5%90%8C/"
-           data-tag="javascript"
-           data-author="" >
-            <span class="post-title" title="get与post的异同">get与post的异同</span>
-            <span class="post-date" title="2019-12-02 20:32:22">2019/12/02</span>
-        </a>
-        
-        <a  class="前端 "
            href="/2019/12/13/JavaScript-%E5%86%92%E6%B3%A1%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/"
            data-tag="javascript"
            data-author="" >
@@ -312,6 +304,22 @@
            data-author="" >
             <span class="post-title" title="插件整理">插件整理</span>
             <span class="post-date" title="2019-12-05 18:23:48">2019/12/05</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2019/12/14/%E4%BD%BF%E7%94%A8D3%E6%B8%B2%E6%9F%93%E6%95%A3%E7%82%B9%E5%9B%BE/"
+           data-tag="数据可视化 D3"
+           data-author="" >
+            <span class="post-title" title="使用D3渲染散点图">使用D3渲染散点图</span>
+            <span class="post-date" title="2019-12-14 12:57:30">2019/12/14</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2019/12/02/get%E4%B8%8Epost%E7%9A%84%E5%BC%82%E5%90%8C/"
+           data-tag="javascript"
+           data-author="" >
+            <span class="post-title" title="get与post的异同">get与post的异同</span>
+            <span class="post-date" title="2019-12-02 20:32:22">2019/12/02</span>
         </a>
         
     </nav>
@@ -393,7 +401,18 @@
 </blockquote>
 <blockquote>
 <p>从头部开始比较：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">5</span>,<span class="number">7</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">9</span>,<span class="number">8</span>];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i&lt;arr.length<span class="number">-1</span>;i++)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="number">0</span>;j&lt;arr.length-i<span class="number">-1</span>;j++)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">if</span>(arr[j]&gt;arr[j+<span class="number">1</span>])&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">               <span class="keyword">var</span> t;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">               t = arr[j];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">               arr[j] = arr[j+<span class="number">1</span>];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">               arr[j+<span class="number">1</span>] = t;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">            &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">        &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr></table></figure>
+<pre><code class="javascript">var arr = [5,7,1,2,9,8];
+
+for(var i = 0;i&lt;arr.length-1;i++){
+        for(var j = 0;j&lt;arr.length-i-1;j++){
+            if(arr[j]&gt;arr[j+1]){
+               var t;
+               t = arr[j];
+               arr[j] = arr[j+1];
+               arr[j+1] = t;
+            }
+        }
+    }</code></pre>
 </blockquote>
 <blockquote>
 <p>其中第一个 for 循环控制比较轮次，因为 arr.length 从一开始数为 6，但是 for 循环里 i 从 0 开始，故需 arr.length - 1 ，但由于比较5轮次后得到5个已经排好序的数据，所以最后一个数不用比较，因此要小于 arr.length - 1 。 第二个for循环进行比较大小和交换位置，因为比较一轮会把处于底部的最小值排到最顶，所以接下来就不用再比较它了，只需比较剩余的数即可，所以需要小于 arr.length - 1 -i。</p>
@@ -409,7 +428,18 @@
 </blockquote>
 <blockquote>
 <p>从尾部开始比较：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">5</span>,<span class="number">7</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">9</span>,<span class="number">8</span>];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i&lt;arr.length<span class="number">-1</span>;i++)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> j = arr.length-i<span class="number">-1</span>;j&gt;=<span class="number">0</span>;j--)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">            <span class="keyword">if</span>(arr[j]&gt;arr[j+<span class="number">1</span>])&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">               <span class="keyword">var</span> t;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">               t = arr[j];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">               arr[j] = arr[j+<span class="number">1</span>];</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">               arr[j+<span class="number">1</span>] = t;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">            &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">        &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr></table></figure>
+<pre><code class="javascript">var arr = [5,7,1,2,9,8];
+
+for(var i = 0;i&lt;arr.length-1;i++){
+        for(var j = arr.length-i-1;j&gt;=0;j--){
+            if(arr[j]&gt;arr[j+1]){
+               var t;
+               t = arr[j];
+               arr[j] = arr[j+1];
+               arr[j+1] = t;
+            }
+        }
+    }</code></pre>
 </blockquote>
 <blockquote>
 <p>第一轮：5 7 1 2 9 8         5 7 1 2 8 9         5 1 7 2 8 9</p>
