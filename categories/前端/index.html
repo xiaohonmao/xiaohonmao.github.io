@@ -6,15 +6,15 @@
   <meta name="keywords" content="">
   <meta name="description" content="Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="使用D3.js实现了一个柱状图的渲染，点击添加按钮，会新增一个柱状图与之前柱状图均分画布大小，鼠标划过有高亮效果，点击柱状图可实现排序，点击第二次可实现反向排序 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang&#x3D;&amp;quot;en&amp;quot;&amp;gt;  &amp;lt;head&amp;gt;     &amp;lt;meta charset&#x3D;&amp;quot;UTF-8&amp;quot;&amp;gt;     &amp;lt">
+<meta name="description" content="主要功能描述 1、生成画布 2、生成模拟数据（数据是对象） 3、添加散点、指定坐标、添加颜色 4、添加坐标轴x轴和y轴（先添加比例尺，再添加坐标轴），使用了分组，方便后面组合使用 5、有些散点会溢出画布，做了裁切 6、点击外部按钮做数据的更新，坐标轴的也会更新，同时添加了动画 源码 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang&#x3D;&amp;quot;en&amp;quot;&amp;gt;  &amp;l">
 <meta name="keywords" content="数据可视化 D3">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用D3渲染柱状图">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;13&#x2F;%E4%BD%BF%E7%94%A8D3%E6%B8%B2%E6%9F%93%E6%9F%B1%E7%8A%B6%E5%9B%BE&#x2F;index.html">
+<meta property="og:title" content="使用D3渲染散点图">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;14&#x2F;%E4%BD%BF%E7%94%A8D3%E6%B8%B2%E6%9F%93%E6%95%A3%E7%82%B9%E5%9B%BE&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="使用D3.js实现了一个柱状图的渲染，点击添加按钮，会新增一个柱状图与之前柱状图均分画布大小，鼠标划过有高亮效果，点击柱状图可实现排序，点击第二次可实现反向排序 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang&#x3D;&amp;quot;en&amp;quot;&amp;gt;  &amp;lt;head&amp;gt;     &amp;lt;meta charset&#x3D;&amp;quot;UTF-8&amp;quot;&amp;gt;     &amp;lt">
+<meta property="og:description" content="主要功能描述 1、生成画布 2、生成模拟数据（数据是对象） 3、添加散点、指定坐标、添加颜色 4、添加坐标轴x轴和y轴（先添加比例尺，再添加坐标轴），使用了分组，方便后面组合使用 5、有些散点会溢出画布，做了裁切 6、点击外部按钮做数据的更新，坐标轴的也会更新，同时添加了动画 源码 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang&#x3D;&amp;quot;en&amp;quot;&amp;gt;  &amp;l">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-12-13T15:00:09.247Z">
+<meta property="og:updated_time" content="2019-12-14T05:00:16.352Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -282,12 +282,28 @@
             <span class="post-date" title="2019-12-13 22:13:27">2019/12/13</span>
         </a>
         
+        <a  class="前端 "
+           href="/2019/12/02/get%E4%B8%8Epost%E7%9A%84%E5%BC%82%E5%90%8C/"
+           data-tag="javascript"
+           data-author="" >
+            <span class="post-title" title="get与post的异同">get与post的异同</span>
+            <span class="post-date" title="2019-12-02 20:32:22">2019/12/02</span>
+        </a>
+        
         <a  class=""
            href="/2019/12/02/hello-world/"
            data-tag=""
            data-author="" >
             <span class="post-title" title="Hello World">Hello World</span>
             <span class="post-date" title="2019-12-02 08:37:44">2019/12/02</span>
+        </a>
+        
+        <a  class="前端 "
+           href="/2019/12/14/%E4%BD%BF%E7%94%A8D3%E6%B8%B2%E6%9F%93%E6%95%A3%E7%82%B9%E5%9B%BE/"
+           data-tag="数据可视化 D3"
+           data-author="" >
+            <span class="post-title" title="使用D3渲染散点图">使用D3渲染散点图</span>
+            <span class="post-date" title="2019-12-14 12:57:30">2019/12/14</span>
         </a>
         
         <a  class="前端 "
@@ -304,22 +320,6 @@
            data-author="" >
             <span class="post-title" title="插件整理">插件整理</span>
             <span class="post-date" title="2019-12-05 18:23:48">2019/12/05</span>
-        </a>
-        
-        <a  class="前端 "
-           href="/2019/12/14/%E4%BD%BF%E7%94%A8D3%E6%B8%B2%E6%9F%93%E6%95%A3%E7%82%B9%E5%9B%BE/"
-           data-tag="数据可视化 D3"
-           data-author="" >
-            <span class="post-title" title="使用D3渲染散点图">使用D3渲染散点图</span>
-            <span class="post-date" title="2019-12-14 12:57:30">2019/12/14</span>
-        </a>
-        
-        <a  class="前端 "
-           href="/2019/12/02/get%E4%B8%8Epost%E7%9A%84%E5%BC%82%E5%90%8C/"
-           data-tag="javascript"
-           data-author="" >
-            <span class="post-title" title="get与post的异同">get与post的异同</span>
-            <span class="post-date" title="2019-12-02 20:32:22">2019/12/02</span>
         </a>
         
     </nav>
