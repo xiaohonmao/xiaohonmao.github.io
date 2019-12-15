@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Hexo</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="Hexo">
+  <title>JavaScript-队列 | Hexo</title>
+  <meta name="keywords" content=" javascript 数据结构 ">
+  <meta name="description" content="JavaScript-队列 | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="try 语句测试代码块的错误        catch 语句处理错误        throw 语句创建自定义错误 ​    JavaScript 抛出错误​        当错误发生时，当事情出问题时，JavaScript引擎通常会停止，并生成一个错误消息。 ​    JavaScript 测试和捕捉​        try 语句允许我们定义在执行时进行错误测试的代码块​        catc">
 <meta name="keywords" content="javascript">
@@ -51,7 +51,7 @@
 </div>
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
     <img class="avatar" src="/img/avatar.jpg" />
@@ -360,12 +360,55 @@
         </div>
     </div>
 </aside>
-<div class="post index">
+<div class="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-JavaScript-队列" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Why-Blog"><span class="toc-text">Why Blog</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#对博客的理解"><span class="toc-text">对博客的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于叶落阁"><span class="toc-text">关于叶落阁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#博客平台"><span class="toc-text">博客平台</span></a></li></ol></li></ol>
+        <h1 class="article-title">JavaScript-队列</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a  data-rel="前端">前端</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a class="color1">javascript 数据结构</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-12-15 00:17:49'>2019-12-14 23:58</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        
     
 <style>
     .left-col .switch-btn,
@@ -378,36 +421,245 @@
     }
 </style>
 </div>
-            <h1 id="Why-Blog"><a href="#Why-Blog" class="headerlink" title="Why Blog"></a>Why Blog</h1><h2 id="对博客的理解"><a href="#对博客的理解" class="headerlink" title="对博客的理解"></a>对博客的理解</h2><p>喜欢写Blog的人，会经历三个阶段。</p>
-<blockquote>
-<p>第一阶段，刚接触Blog，觉得很新鲜，试着选择一个免费空间来写。</p>
-</blockquote>
-<blockquote>
-<p>第二阶段，发现免费空间限制太多，就自己购买域名和空间，搭建独立博客。</p>
-</blockquote>
-<blockquote>
-<p>第三阶段，觉得独立博客的管理太麻烦，最好在保留控制权的前提下，让别人来管，自己只负责写文章。</p>
-</blockquote>
-<p>我们每个人的在网络上产生的数据越来越多，这些信息是我们在互联网上存在过的痕迹，值得我们认真对待。但是它们被分散分布在各个网站上。很多时候我们很难将它们聚合在一起，而且各个网站的信息排布方式也没有办法自由控制，所以我们需要一个可以由自己主宰的空间——博客。</p>
-<p>通过博客，我们可以记录自己的生活和成长的轨迹。它不像 Twitter 那样碎片化，也不像 Facebook 那样关系化，它是私人的空间。</p>
-<h2 id="关于叶落阁"><a href="#关于叶落阁" class="headerlink" title="关于叶落阁"></a>关于叶落阁</h2><p><strong>叶落阁</strong> 是阿杰（杨玉杰）的个人站。</p>
-<p>到目前为止已经写了<code class="article_number"></code>篇文章， 共<code class="site_word_count"></code>字。</p>
-<p>本站访问人数：<code class="site_uv"></code>人次 ， 访问量：<code class="site_pv"></code>次</p>
-<h2 id="博客平台"><a href="#博客平台" class="headerlink" title="博客平台"></a>博客平台</h2><p>这个博客通过 <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> 生成，部署在 <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a>，主题 <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank" rel="noopener">3-hexo</a> 已经在github上开源</p>
-<p>主要功能：</p>
-<ul>
-<li>搜索支持文章标题、标签(#标签)、作者(@作者)</li>
-<li>pad/手机等移动端适配</li>
-<li>页面全局快捷键 <a href='http://yelog.org/2017/03/24/3-hexo-shortcuts/' target="_blank" rel="noopener">3-hexo快捷键说明</a></li>
-</ul>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>使用原生js实现队列</p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;script&gt;
+        //构造函数实现 Queue 类
+        function Queue(){
+            this.dataStore = [];
+            this.enqueue = enqueue;
+            this.dequeue = dequeue;
+            this.front = front;
+            this.back = back;
+            this.toString = toString;
+            this.empty = empty;
+            this.count = count;
+        }
 
-        </article>
-        
-        <p>
-            <a  class="dashang" onclick="dashangToggle()">赏</a>
-        </p>
-        
-        
+        //enqueue() 方法向队末尾添加一个元素
+        function enqueue(element){
+            this.dataStore.push(element);
+        }
+
+        //dequeue() 方法删除队首的元素
+        function dequeue(){
+            return this.dataStore.shift();
+        }
+
+        //使用以下方法读取队首和队尾的元素
+        function front(){
+            return this.dataStore[0];
+        }
+        function back(){
+            return this.dataStore[this.dataStore.length - 1];
+        }
+
+        //toString() 方法显示队列内的所有元素
+        function toString(){
+            var retStr = &quot;&quot;;
+            for(var i = 0; i&lt;this.dataStore.length; ++i){
+                retStr += this.dataStore[i] + &quot;\n&quot;;
+            } 
+            return retStr;
+        }
+
+        //判断队列是否为空
+        function empty(){
+            if(this.dataStore.length == 0){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        //显示队列的长度
+        function count(){
+            return this.dataStore.length;
+        }
+
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>应用实例:</p>
+<p>​    前面我们提到过，经常用队列模拟排队的人。下面，我们使用队列来模拟跳方块舞的人。<br>​            当男男女女来到舞池，他们按照自己的性别排成两队。当舞池中有地方空出来的时候，两个队列中的第一个人组成舞伴。他们身后的人各自向前一位，组成新的队首。当一对新的舞伴进入舞池时，主持人会大喊出他们的名字。当一对舞伴走出舞池，且两队队伍任意一队没有人时，主持人会把这个情况告诉大家。<br>​            为了模拟这个情况，我们将男男女女姓名存储在一个文本文件。</p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;script&gt;
+        //构造函数实现 Queue 类
+        function Queue(){
+            this.dataStore = [];
+            this.enqueue = enqueue;
+            this.dequeue = dequeue;
+            this.front = front;
+            this.back = back;
+            this.toString = toString;
+            this.empty = empty;
+            this.count = count;
+        }
+
+        //enqueue() 方法向队末尾添加一个元素
+        function enqueue(element){
+            this.dataStore.push(element);
+        }
+
+        //dequeue() 方法删除队首的元素
+        function dequeue(){
+            return this.dataStore.shift();
+        }
+
+        //使用以下方法读取队首和队尾的元素
+        function front(){
+            return this.dataStore[0];
+        }
+        function back(){
+            return this.dataStore[this.dataStore.length - 1];
+        }
+
+        //toString() 方法显示队列内的所有元素
+        function toString(){
+            var retStr = &quot;&quot;;
+            for(var i = 0; i&lt;this.dataStore.length; ++i){
+                retStr += this.dataStore[i] + &quot;\n&quot;;
+            } 
+            return retStr;
+        }
+
+        //判断队列是否为空
+        function empty(){
+            if(this.dataStore.length == 0){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        //显示队列的长度
+        function count(){
+            return this.dataStore.length;
+        }
+
+        //每个舞者的信息都被保存在一个 Dancer 对象中
+        function Dancer(name, sex){
+            this.name = name;
+            this.sex = sex;
+        }
+
+        //将舞者的信息读到程序中来,此函数将舞者按照性别分在不同的队列中
+        function getDancers(males, females){
+            var names = _names.split(&quot;**&quot;);
+            for(var i = 0; i&lt;names.length; ++i){
+                names[i] = names[i].trim();  //trim() 方法用于删除字符串的头尾空格,不会改变原始字符串。
+            }
+
+            for(var i = 0;i&lt;names.length; ++i){
+                var dancer = names[i].split(&quot; &quot;);
+                var sex = dancer[0];
+                var name = dancer[1];
+                if(sex == &quot;女&quot;){
+                    females.enqueue(new Dancer(name,sex));
+                }else{
+                    males.enqueue(new Dancer(name,sex));
+                }
+            }
+        }
+
+        //此函数将男性和女性组成舞伴，并宣布配对结果
+        function dance(males, females){
+            console.log(&quot;这组舞伴是：&quot;);
+            while(!females.empty() &amp;&amp; !males.empty()){
+                var person = females.dequeue();
+                // var person = females.front();
+                console.log(&quot;女舞者是&quot; + person.name);
+                person = males.dequeue();
+                // person = males.front();
+                console.log(&quot;男舞者是&quot; + person.name);
+            }
+        }
+
+
+        //测试程序
+        var _names = &quot;女 小李**男 福来**男 强子**男 李勇**女 小梅**男 来福**女 艾丽**男 张帆**男 文强**男 丁力**女 娜娜&quot;;
+        var names = _names.split(&quot;**&quot;);
+
+        var maleDancer = new Queue();
+        var femaleDancer = new Queue();
+
+        getDancers(maleDancer,femaleDancer);
+        dance(maleDancer,femaleDancer);
+
+        if(!femaleDancer.empty()){
+            console.log(femaleDancer.front().name + &quot;正在等待跳舞&quot;);
+        }
+        if(!maleDancer.empty()){
+            console.log(maleDancer.front().name + &quot;正在等待跳舞&quot;);
+        }
+
+        //显示等待跳舞的人的个数
+        var nanDancers = new Queue();
+        var nvDancers = new Queue();
+        getDancers(nanDancers,nvDancers);
+        dance(nanDancers,nvDancers);
+        if(nanDancers.count()&gt;0){
+            console.log(&quot;有&quot; + nanDancers.count() + &quot;男舞者等待&quot;);
+        }
+        if(nvDancers.count()&gt;0){
+            console.log(&quot;有&quot; + nvDancers.count() + &quot;男舞者等待&quot;);
+        }
+
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>JavaScript-队列</p>
+    
+    <p><span class="copy-title">本文作者:</span><a  title="xia xia">xia xia</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-12-14, 23:58:40</p>
+    <p><span class="copy-title">最后更新:</span>2019-12-15, 00:17:49</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/14/JavaScript-%E9%98%9F%E5%88%97/" title="JavaScript-队列">http://yoursite.com/2019/12/14/JavaScript-%E9%98%9F%E5%88%97/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">©2016-2019 Yelog</p>
