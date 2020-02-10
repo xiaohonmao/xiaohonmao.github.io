@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>get与post的异同 | Hexo</title>
-  <meta name="keywords" content=" 知识点 ">
-  <meta name="description" content="get与post的异同 | Hexo">
+  <title>js中的call、apply、bind | Hexo</title>
+  <meta name="keywords" content=" ES6 ">
+  <meta name="description" content="js中的call、apply、bind | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="这几天学着在VScode中使用react脚手架搭建项目，搭建好了之后发现在JSX文件中没有提示，就去安装了几个插件，在安装插件的时候参考了网上的一篇文章，在VScode的用户配置里面添加了一些配置    但是安装之后，只有第一次打开的项目的时候输入 “ rcc ” 才有快捷提示，之后就没有了，原因是在VScode最下面一直提示 “正在初始化JS&#x2F;TS语言功能”，去网上百度了之后发现也是因为它才导致">
 <meta name="keywords" content="react">
@@ -427,9 +427,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-get与post的异同" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-js中的call、apply、bind" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">get与post的异同</h1>
+        <h1 class="article-title">js中的call、apply、bind</h1>
     
     <div class="article-meta">
         
@@ -444,14 +444,14 @@
         
         <span class="tag">
             
-            <a class="color4">知识点</a>
+            <a class="color4">ES6</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-02-10 15:40:00'>2019-12-02 20:32</time>
+        创建时间:<time class="date" title='更新时间: 2020-02-10 15:39:43'>2019-12-17 17:51</time>
         
     </div>
     <div class="article-meta">
@@ -473,7 +473,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#GET-和-POST两种基本请求方法的区别"><span class="toc-text">GET 和 POST两种基本请求方法的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解释"><span class="toc-text">解释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#举例"><span class="toc-text">举例</span></a></li></ol>
+        
     
 <style>
     .left-col .switch-btn,
@@ -489,23 +489,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="GET-和-POST两种基本请求方法的区别"><a href="#GET-和-POST两种基本请求方法的区别" class="headerlink" title="GET 和 POST两种基本请求方法的区别"></a>GET 和 POST两种基本请求方法的区别</h2><ul>
-<li>GET在浏览器回退时是无害的，而POST会再次提交请求</li>
-<li>GET产生的URL地址可以被BookMark（这个URL地址你可以作为书签收藏起来），而POST不可以</li>
-<li>GET请求会被浏览器主动cache（缓存），而POST不会，除非手动设置</li>
-<li>GET请求只能进行URL编码，而POST支持多种编码方式</li>
-<li>GET请求参数会被完整保留在浏览器历史记录里，而POST中的参数不会被保留</li>
-<li>GET请求在URL中传送的参数是由长度限制的，而POST没有</li>
-<li>对参数的数据类型，GET只接受ASCII字符，而POST没有限制</li>
-<li>GET比POST更不安全，因为参数直接暴露在URL上，所以不能用来传递敏感信息</li>
-<li>GET参数通过URL传递，POST放在 Request body 中</li>
-<li>GET产生一个TCP数据包，POST产生两个TCP数据包</li>
-</ul>
-<h2 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h2><p>对于GET方式的请求，浏览器会把http header和data一并发送出去，服务器响应200（返回数据）；而对于POST，浏览器先发送header，服务器响应100 continue，浏览器再发送data，服务器响应200 ok（返回数据）。</p>
-<p>也就是说，GET只需要汽车跑一趟就把货送到了，而POST得跑两趟，第一趟，先去和服务器打个招呼“嗨，我等下要送一批货来，你们打开门迎接我”，然后再回头把货送过去。</p>
-<p>因为POST需要两步，时间上消耗的要多一点，看起来GET比POST更有效。因此Yahoo团队有推荐用GET替换POST来优化网站性能。但这是一个坑！跳入需谨慎。为什么？1. GET与POST都有自己的语义，不能随便混用。2. 据研究，在网络环境好的情况下，发一次包的时间和发两次包的时间差别基本可以无视。而在网络环境差的情况下，两次包的TCP在验证数据包完整性上，有非常大的优点。3. 并不是所有浏览器都会在POST中发送两次包，Firefox就只发送一次。</p>
-<h2 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h2><p>HTTP是基于TCP/IP的关于数据在万维网中如何通信的协议。HTTP的底层是TCP/IP。所以GET和POST的底层也是TCP/IP，也就是说，GET/POST都是TCP链接。GET和POST能做的事情是一样一样的。你要给GET加上request body，给POST带上url参数，技术上是完全行的通的。 在万维网世界中，TCP就像汽车，我们用TCP来运输数据，它很可靠，从来不会发生丢件少件的现象。但是如果路上跑的全是看起来一模一样的汽车，那这个世界看起来是一团混乱，送急件的汽车可能被前面满载货物的汽车拦堵在路上，整个交通系统一定会瘫痪。为了避免这种情况发生，交通规则HTTP诞生了。HTTP给汽车运输设定了好几个服务类别，有GET, POST, PUT, DELETE等等，HTTP规定，当执行GET请求的时候，要给汽车贴上GET的标签（设置method为GET），而且要求把传送的数据放在车顶上（url中）以方便记录。如果是POST请求，就要在车上贴上POST的标签，并把货物放在车厢里。当然，你也可以在GET的时候往车厢内偷偷藏点货物，但是这是很不光彩；也可以在POST的时候在车顶上也放一些数据，让人觉得傻乎乎的。HTTP只是个行为准则，而TCP才是GET和POST怎么实现的基本。 但是，我们只看到HTTP对GET和POST参数的传送渠道（url还是requrest body）提出了要求。“标准答案”里关于参数大小的限制又是从哪来的呢？<br>万维网世界中，还有另一个重要的角色：运输公司。不同的浏览器（发起http请求）和服务器（接受http请求）就是不同的运输公司。 虽然理论上，你可以在车顶上无限的堆货物（url中无限加参数）。但是运输公司可不傻，装货和卸货也是有很大成本的，他们会限制单次运输量来控制风险，数据量太大对浏览器和服务器都是很大负担。业界不成文的规定是，（大多数）浏览器通常都会限制url长度在2K个字节，而（大多数）服务器最多处理64K大小的url。超过的部分，恕不处理。如果你用GET服务，在request body偷偷藏了数据，不同服务器的处理方式也是不同的，有些服务器会帮你卸货，读出数据，有些服务器直接忽略，所以，虽然GET可以带request body，也不能保证一定能被接收到哦。GET和POST本质上就是TCP链接，并无差别。但是由于HTTP的规定和浏览器/服务器的限制，导致他们在应用过程中体现出一些不同。</p>
-
+        
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
     </div>
@@ -518,12 +502,12 @@
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>get与post的异同</p>
+    <p><span class="copy-title">文章标题:</span>js中的call、apply、bind</p>
     
     <p><span class="copy-title">本文作者:</span><a  title="xia xia">xia xia</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-12-02, 20:32:22</p>
-    <p><span class="copy-title">最后更新:</span>2020-02-10, 15:40:00</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/02/get%E4%B8%8Epost%E7%9A%84%E5%BC%82%E5%90%8C/" title="get与post的异同">http://yoursite.com/2019/12/02/get%E4%B8%8Epost%E7%9A%84%E5%BC%82%E5%90%8C/</a>
+    <p><span class="copy-title">发布时间:</span>2019-12-17, 17:51:07</p>
+    <p><span class="copy-title">最后更新:</span>2020-02-10, 15:39:43</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/17/js%E4%B8%AD%E7%9A%84call%E3%80%81apply%E3%80%81bind/" title="js中的call、apply、bind">http://yoursite.com/2019/12/17/js%E4%B8%AD%E7%9A%84call%E3%80%81apply%E3%80%81bind/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
