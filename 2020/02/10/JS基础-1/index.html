@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>JavaScript 冒泡算法详解 | Hexo</title>
-  <meta name="keywords" content=" 数据结构 ">
-  <meta name="description" content="JavaScript 冒泡算法详解 | Hexo">
+  <title>JS基础-1 | Hexo</title>
+  <meta name="keywords" content=" 知识点 ">
+  <meta name="description" content="JS基础-1 | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="变量和常量变量这里的变量被存储在栈中，栈中的数据存储内容较少，读取速度较快 变量名是区分大小写的 变量名一般都要有一定含义，尽量减少无意义的变量名 变量名首字母小写，每个单词的首字母大写 stepValue 采用驼峰式命名 不能使用数值起头，如果使用“_”起头，意味着这个变量是一个临时变量或者参数 不能使用关键词或者保留字 可以在设置以后重新改变这个变量的值 当定义一个变量时，意味着将这个变量作为">
 <meta name="keywords" content="知识点">
@@ -430,9 +430,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-JavaScript-冒泡算法详解" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-JS基础-1" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">JavaScript 冒泡算法详解</h1>
+        <h1 class="article-title">JS基础-1</h1>
     
     <div class="article-meta">
         
@@ -447,14 +447,14 @@
         
         <span class="tag">
             
-            <a class="color5">数据结构</a>
+            <a class="color4">知识点</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-02-10 15:39:51'>2019-12-13 22:13</time>
+        创建时间:<time class="date" title='更新时间: 2020-02-10 21:37:24'>2020-02-10 19:38</time>
         
     </div>
     <div class="article-meta">
@@ -476,7 +476,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#变量和常量"><span class="toc-text">变量和常量</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#变量"><span class="toc-text">变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#常量"><span class="toc-text">常量</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#弹框"><span class="toc-text">弹框</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一元运算符"><span class="toc-text">一元运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#强制转换"><span class="toc-text">强制转换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#字符串"><span class="toc-text">字符串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数值"><span class="toc-text">数值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#布尔值"><span class="toc-text">布尔值</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#隐式转换"><span class="toc-text">隐式转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#条件语句"><span class="toc-text">条件语句</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#if"><span class="toc-text">if()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#switch"><span class="toc-text">switch</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#循环语句"><span class="toc-text">循环语句</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#while"><span class="toc-text">while</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#do-while"><span class="toc-text">do while</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#for"><span class="toc-text">for</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#强制记忆"><span class="toc-text">强制记忆</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象"><span class="toc-text">对象</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -492,95 +492,95 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>冒泡算法简单来说就是让数组中需要比较大小的数据，像气泡一样，小的往上冒，大的往下沉，由此得出由小到大按顺序排列的数组。我总结了两种方法实现，一种是从头部开始比较，另一种是从尾部开始比较。</p>
-<p>从头部开始比较：</p>
-<pre><code class="javascript">var arr = [5, 7, 1, 2, 9, 8];
-
-for (var i = 0; i &lt; arr.length - 1; i++) {
-  for (var j = 0; j &lt; arr.length - i - 1; j++) {
-    if (arr[j] &gt; arr[j + 1]) {
-      var t;
-      t = arr[j];
-      arr[j] = arr[j + 1];
-      arr[j + 1] = t;
-    }
-  }
-}</code></pre>
-<p>其中第一个 for 循环控制比较轮次，因为 arr.length 从一开始数为 6，但是 for 循环里 i 从 0 开始，故需 arr.length - 1 ，但由于比较 5 轮次后得到 5 个已经排好序的数据，所以最后一个数不用比较，因此要小于 arr.length - 1 。 第二个 for 循环进行比较大小和交换位置，因为比较一轮会把处于底部的最小值排到最顶，所以接下来就不用再比较它了，只需比较剩余的数即可，所以需要小于 arr.length - 1 -i。</p>
-<p>第一轮：5 7 1 2 9 8 5 1 7 2 9 8 5 1 2 7 9 8</p>
-<p>第二轮：5 1 2 7 8 9 1 5 2 7 8 9</p>
-<p>比较结束：1 2 5 7 8 9</p>
-<p>从尾部开始比较：</p>
-<pre><code class="javascript">var arr = [5, 7, 1, 2, 9, 8];
-
-for (var i = 0; i &lt; arr.length - 1; i++) {
-  for (var j = arr.length - i - 1; j &gt;= 0; j--) {
-    if (arr[j] &gt; arr[j + 1]) {
-      var t;
-      t = arr[j];
-      arr[j] = arr[j + 1];
-      arr[j + 1] = t;
-    }
-  }
-}</code></pre>
-<p>第一轮：5 7 1 2 9 8 5 7 1 2 8 9 5 1 7 2 8 9</p>
-<p>第二轮：1 5 7 2 8 9 1 5 2 7 8 9</p>
-<p>比较结束：1 2 5 7 8 9</p>
-<p>其他写法</p>
-<pre><code class="jsvascript">
-    var arr = [5,7,1,2,9,8];
-
-    // 法一
-     for(var i = 0;i&lt;arr.length-1;i++){
-         for(var j = arr.length-i;j&gt;=0;j--){
-             if(arr[j]&gt;arr[j+1]){
-                 console.log(&quot;*************************&quot;)
-                 console.log(arr[j] + &quot;:&quot; + arr[j+1])
-                 arr[j] = [arr[j+1],arr[j+1]=arr[j]][0];
-                 console.log(arr[j] + &quot;:&quot; + arr[j+1])
-
-             }
-         }
-     }
-
-    // 法二
-     for(var i = 0;i&lt;arr.length-1;i++){
-         for(var j = 0;j&lt;arr.length-i-1;j++){
-             if(arr[j]&gt;arr[j+1]){
-                 console.log(&quot;*************************&quot;)
-                 console.log(arr[j] + &quot;:&quot; + arr[j+1])
-                 arr[j] = [arr[j+1],arr[j+1]=arr[j]][0];
-                 console.log(arr[j] + &quot;:&quot; + arr[j+1])
-             }
-         }
-     }
-
-    // 法三
-     for(var i = 0;i&lt;arr.length-1;i++){
-         for(var j = 0;j&lt;arr.length-i-1;j++){
-             if(arr[j]&gt;arr[j+1]){
-                var t;
-                t = arr[j];
-                arr[j] = arr[j+1];
-                arr[j+1] = t;
-             }
-         }
-     }
-
-    // 法四
-    for(var i = 0;i&lt;arr.length-1;i++){
-        for(var j = arr.length-i-1;j&gt;=0;j--){
-            if(arr[j]&gt;arr[j+1]){
-               var t;
-               t = arr[j];
-               arr[j] = arr[j+1];
-               arr[j+1] = t;
-            }
-        }
-    }
-
-    console.log(arr)
-</code></pre>
+        <h3 id="变量和常量"><a href="#变量和常量" class="headerlink" title="变量和常量"></a>变量和常量</h3><h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><p>这里的变量被存储在栈中，栈中的数据存储内容较少，读取速度较快</p>
+<p>变量名是区分大小写的</p>
+<p>变量名一般都要有一定含义，尽量减少无意义的变量名</p>
+<p>变量名首字母小写，每个单词的首字母大写</p>
+<p>stepValue 采用驼峰式命名</p>
+<p>不能使用数值起头，如果使用“_”起头，意味着这个变量是一个临时变量或者参数</p>
+<p>不能使用关键词或者保留字</p>
+<p>可以在设置以后重新改变这个变量的值</p>
+<p>当定义一个变量时，意味着将这个变量作为window的全局属性定义了</p>
+<p>定义变量时需要避开window下已有的属性名</p>
+<h4 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h4><p>设置以后不能修改常量的值</p>
+<p>常量名称全部大写，以下划线区分单词</p>
+<h3 id="弹框"><a href="#弹框" class="headerlink" title="弹框"></a>弹框</h3><p>alert();    警告框</p>
+<p>confirm();    确认消息框</p>
+<p>prompt();    提示消息框</p>
+<h3 id="一元运算符"><a href="#一元运算符" class="headerlink" title="一元运算符"></a>一元运算符</h3><p>i++;    后置自增：是先取值，在+1（当获取值时，先将“i”的值返回打印出来，在做”i+1”）</p>
+<p>++i;    前置自增：是先+1，再取值（这里是先把”i+1”，然后将运算的结果返回并打印）</p>
+<p>单独运算时，两个结果是相同的</p>
+<p>一旦使用一元运算符，所有的内容将会隐式转换为数值运算</p>
+<h3 id="强制转换"><a href="#强制转换" class="headerlink" title="强制转换"></a>强制转换</h3><h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><p>a=string(a);    //强制转换为字符</p>
+<p>toString(进制)    按照进制将内容转换为字符串</p>
+<p>a=a.toFixed(2);    //保留小数点后几位，会四舍五入</p>
+<h4 id="数值"><a href="#数值" class="headerlink" title="数值"></a>数值</h4><p>var a=”a3”; a=Number(a);    //字符串中有字符时，通过Number强制转换都是“NaN”</p>
+<p>var a=true;    //布尔值强转数值后变成0(false)和1(true)</p>
+<p>var a;    //undefined类型强转后是“NaN”</p>
+<p>var a=null;    //null类型强转后变为0</p>
+<p>var a={a:1,b:2};    //所有对象强转数值变为“NaN”</p>
+<p>a=Number(a);    //强制转换为数值</p>
+<p>a=parseInt(a);    //强转取整，如果字符串起始是数值，在使用这个转换时，会将这个字符串起始到第一字符位置之前的内容转换为数值，不会四舍五入。</p>
+<p>布尔值如果使用parseInt强转后变为“NaN”</p>
+<p>其他非字符和数值的任何类型通过parseInt强转后变为“NaN”</p>
+<p>a=parseFloat(a);    //如果有小数点，转换为浮点数</p>
+<p>NaN    数值类型，非数值，任何一个非数值都和其他非数值不相等</p>
+<h4 id="布尔值"><a href="#布尔值" class="headerlink" title="布尔值"></a>布尔值</h4><p>只有“ ”、0、false、undefined、null、NaN强转布尔值时是false，其它都是true</p>
+<h3 id="隐式转换"><a href="#隐式转换" class="headerlink" title="隐式转换"></a>隐式转换</h3><p>任何数值类型与字符相加时，会自动将数值类型转换为字符类型，然后首尾相连</p>
+<p>所有隐式转换均使用Number()、String()、Boolean()</p>
+<p>加法运算中如果有字符参与，就会隐式转换为字符，再相连；否则如果没有字符参与，将会隐式转换为数值，进行数值相加</p>
+<p>如果减法、乘法、除法、取模运算时，都会隐式转换为数值再运算</p>
+<p>使用一元运算符，所有内容将会隐式转换为数值运算</p>
+<h3 id="条件语句"><a href="#条件语句" class="headerlink" title="条件语句"></a>条件语句</h3><h4 id="if"><a href="#if" class="headerlink" title="if()"></a>if()</h4><p>不论给的是什么值，都会强转为布尔值</p>
+<p>如果布尔值是true，进入条件语句</p>
+<p>if(a){};    //a不等于6种情况（null、false、undefined、“ ”、0、NaN）</p>
+<p>if(a==true){};    //“1”、1、true</p>
+<p>if(a===true){};    //true</p>
+<p>if(!a){</p>
+<p>​    //a是不存在或者没有初始值，或者已经被设为null</p>
+<p>}</p>
+<p>//a是6种情况可以进入</p>
+<p>if(a==false){};    //“ “/、false、0</p>
+<p>if(a===false){};    //false</p>
+<p>if(a+b){};</p>
+<p>if(obj &amp;&amp; obj.a){};</p>
+<p>if(obj || obj !=0){};</p>
+<p>条件只能嵌套，不能交叉</p>
+<p>条件语句，如果内容只有一句话，可以省略花括号</p>
+<p>三目：var b=a &gt; 3 ? 10 : 20;</p>
+<h4 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h4><p>switch主要判断是否相等，===比较类型和值</p>
+<h3 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h3><h4 id="while"><a href="#while" class="headerlink" title="while"></a>while</h4><p>while(变量的条件){</p>
+<p>​    //变量变化（必须向条件外变化）</p>
+<p>};</p>
+<p>自动进入判断条件，直到条件为false时，不再进入</p>
+<p>循环语句，如果内容只有一句话，可以省略花括号</p>
+<p>如果遇到continue,跳出当前的循环，继续下一次循环，注意需要将变量变化的表达式写在continue前面，防止不能改变变量造成死循环</p>
+<h4 id="do-while"><a href="#do-while" class="headerlink" title="do while"></a>do while</h4><p>这里会先执行循环体，在判断条件</p>
+<p>一般用于先需要处理数据，处理完成后再循环执行</p>
+<h4 id="for"><a href="#for" class="headerlink" title="for"></a>for</h4><p>for(var i=0; i&lt;10; i++){};</p>
+<p>第一部分 var i=0; 定义变量，在整个循环中仅执行一次，并且在最开始执行</p>
+<p>第二部分 i&lt;10; 条件判断，在每次循环前做条件判断</p>
+<p>第三部分 i++; 循环语句块全部执行完成以后，需要循环时执行这个语句，完成后接着判断条件</p>
+<p>for(var i=0,sum=0; i&lt;10; i++){};</p>
+<p>只允许使用var定义的变量，let定义的变量sum不能写在里面</p>
+<h3 id="强制记忆"><a href="#强制记忆" class="headerlink" title="强制记忆"></a>强制记忆</h3><p>var b=10;    console.log(Object.prototype.toString.call(b));    //[object Number]</p>
+<p>var b=10;    console.log(Object.prototype.toString.call(b));    //[object Number]</p>
+<p>var b=10;    console.log(Object.prototype.toString.call(b));    //[object Number]</p>
+<p>var e=null;    console.log(Object.prototype.toString.call(e));    //[object Null]</p>
+<p>使用Object.prototype上的原生toString()方法判断数据类型</p>
+<p>相关博文：<a href="https://www.cnblogs.com/cn-chy-com/p/11524980.html" target="_blank" rel="noopener">https://www.cnblogs.com/cn-chy-com/p/11524980.html</a></p>
+<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><p>var obj={a:1,b:2};</p>
+<p>对象是一个集合，是由若干个键值对组成</p>
+<p>在一个对象的同层中不允许出现相同的键</p>
+<p>如果键不是字符类型，就会隐式转换为字符类型</p>
+<p>JS是一种点语法语言，点语法语言只能设置指定字符串为关键词的键值对</p>
+<p>[]中关键词可以是任何内容，包括字符、变量、表达式</p>
+<p>for(var prop in obj){};</p>
+<p>​    遍历查看obj对象中有哪些关键词，并且每次将关键词赋值给变量prop，prop为key的变量</p>
+<p>​    遍历中每一个可枚举属性都可以查看到，根据该key创建的先后顺序遍历</p>
+<p>var obj={a:1,b:2};    delete obj.a;    //可以删除可删除属性，不能删除冻结对象的属性</p>
+<p>对象存储在堆中</p>
+<p>var obj={a:1,b:2};    var obj1=obj;    //仅是将obj的引用地址赋值给obj1</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
@@ -594,12 +594,12 @@ for (var i = 0; i &lt; arr.length - 1; i++) {
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>JavaScript 冒泡算法详解</p>
+    <p><span class="copy-title">文章标题:</span>JS基础-1</p>
     
     <p><span class="copy-title">本文作者:</span><a  title="xia xia">xia xia</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-12-13, 22:13:27</p>
-    <p><span class="copy-title">最后更新:</span>2020-02-10, 15:39:51</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/13/JavaScript-%E5%86%92%E6%B3%A1%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/" title="JavaScript 冒泡算法详解">http://yoursite.com/2019/12/13/JavaScript-%E5%86%92%E6%B3%A1%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/</a>
+    <p><span class="copy-title">发布时间:</span>2020-02-10, 19:38:47</p>
+    <p><span class="copy-title">最后更新:</span>2020-02-10, 21:37:24</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/02/10/JS%E5%9F%BA%E7%A1%80-1/" title="JS基础-1">http://yoursite.com/2020/02/10/JS%E5%9F%BA%E7%A1%80-1/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
