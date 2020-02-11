@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Hello World | Hexo</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="Hello World | Hexo">
+  <title>JS基础-2 | Hexo</title>
+  <meta name="keywords" content=" 知识点 ">
+  <meta name="description" content="JS基础-2 | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="对象的浅复制第一种只能解决对象第一层属性的所有复制 给obj1对象添加设置key为prop（键的变量）的键值对 obj[prop]获取了obj中prop键对应的值 var obj&#x3D;{a:1,b:2,c:3,d:{a:1}}; var obj1&#x3D;{}; for(var prop in obj){     obj1[prop]&#x3D;obj[prop]; } 第二种创建一个空对象，并且将obj的所有属性复制">
 <meta name="keywords" content="知识点">
@@ -438,19 +438,31 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-JS基础-2" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Hello World</h1>
+        <h1 class="article-title">JS基础-2</h1>
     
     <div class="article-meta">
         
         
         
+        <span class="book">
+            
+                <a  data-rel="javascript">javascript</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a class="color4">知识点</a>
+            
+        </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-02-10 15:39:57'>2019-12-02 08:37</time>
+        创建时间:<time class="date" title='更新时间: 2020-02-11 20:28:35'>2020-02-11 17:45</time>
         
     </div>
     <div class="article-meta">
@@ -472,7 +484,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#对象的浅复制"><span class="toc-text">对象的浅复制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#第一种"><span class="toc-text">第一种</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第二种"><span class="toc-text">第二种</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#垃圾回收机制"><span class="toc-text">垃圾回收机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数"><span class="toc-text">函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数参数"><span class="toc-text">函数参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#变量作用域"><span class="toc-text">变量作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数参数值的判断"><span class="toc-text">函数参数值的判断</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数参数不定值"><span class="toc-text">函数参数不定值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数回调"><span class="toc-text">函数回调</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#return"><span class="toc-text">return</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -488,15 +500,90 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;</code></pre>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server</code></pre>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate</code></pre>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy</code></pre>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h3 id="对象的浅复制"><a href="#对象的浅复制" class="headerlink" title="对象的浅复制"></a>对象的浅复制</h3><h4 id="第一种"><a href="#第一种" class="headerlink" title="第一种"></a>第一种</h4><p>只能解决对象第一层属性的所有复制</p>
+<p>给obj1对象添加设置key为prop（键的变量）的键值对</p>
+<p>obj[prop]获取了obj中prop键对应的值</p>
+<pre><code class="javascript">var obj={a:1,b:2,c:3,d:{a:1}};
+var obj1={};
+for(var prop in obj){
+    obj1[prop]=obj[prop];
+}</code></pre>
+<h4 id="第二种"><a href="#第二种" class="headerlink" title="第二种"></a>第二种</h4><p>创建一个空对象，并且将obj的所有属性复制给这个空对象，然后返回给变量obj1</p>
+<pre><code class="javascript">var obj={a:1,b:2};
+var obj1=Object.assign({},obj);</code></pre>
+<h3 id="垃圾回收机制"><a href="#垃圾回收机制" class="headerlink" title="垃圾回收机制"></a>垃圾回收机制</h3><p>所有的局部变量使用完成后都会被自动销毁</p>
+<p>全局变量，如果是number、string、boolean、undefined都会被自动回收</p>
+<p>对于对象而言，所有引用该堆中引用地址的键或者变量都设置为null时，改对象才会被垃圾回收</p>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>使用function方式定义命名函数，在执行该script标签时，先将所有该标签中描述的函数全部存储在堆中，并且建立栈中的引用关系</p>
+<p>函数也是对象，该引用名就是函数名，而且被存储在window对象下</p>
+<p>函数定义只能定义在调用该函数的标签内任意位置或者这个标签前任意script标签中，不能写在该标签后面的script标签中</p>
+<p>在JS中，如果函数名不是构造函数，首字母小写，单词以驼峰式命名，构造函数首字母大写</p>
+<p>匿名函数必须在var定义之后才可以执行</p>
+<pre><code class="javascript">var fn=function(){}; fn();</code></pre>
+<p>自执行函数只能执行一遍</p>
+<pre><code class="javascript">(function(){})();</code></pre>
+<p>构造函数法定义</p>
+<pre><code class="javascript">var fn=new Function(&quot;a&quot;,&quot;b&quot;,&quot;console.log(&#39;aa&#39;)&quot;); fn();</code></pre>
+<h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><p>参数就是函数执行时需要内容，由外部带入</p>
+<p>如果传参是值 <strong>实参</strong>，如果传参传的是变量 <strong>形参</strong></p>
+<h3 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h3><p>变量作用域——变量在什么地方可以被调用</p>
+<p>在函数外是不能够获取函数内的局部变量</p>
+<p>局部变量的作用域仅在该函数内部可以使用，当函数执行完成后，就会清除</p>
+<p>在函数中或全局中this指向window</p>
+<p>​    在函数中只要使用var定义了变量，这个变量在整个函数的任何地方都是局部变量，如果有同名的全局变量，将不会在这里被调用</p>
+<pre><code class="javascript">var a=3;
+fn();
+function fn(){
+    a++;
+    console.log(a);    //NaN
+    var a=5;
+}</code></pre>
+<p>​    在ES5中，如果局部变量和全局变量重名时，可以使用window.变量名获取全局变量</p>
+<pre><code class="javascript">var a=3;
+fn();
+function fn(){
+    var a=5;
+    console.log(a+window.a); //8
+    console.log(a+this.a);    //8
+    console.log(a);    //5
+}</code></pre>
+<p>传参过程中：</p>
+<p>​    带入非对象时，函数执行不会影响这个形参的改变</p>
+<p>​    带入对象时，如果函数中重新设置该参数为一个新对象时，不再修改原有形参引用地址的内容</p>
+<p>​    带入对象时，如果函数中直接修改该参数的属性值时，会引起形参的内容改变</p>
+<pre><code class="javascript">var obj={n:1};
+function fn1(a){
+    a={n:3}; //重新赋值新对象就是重新设置引用对象地址
+}
+fn1(obj);
+console.log(obj); //{n:1}</code></pre>
+<pre><code class="javascript">var obj={n:1};
+function fn1(a){
+    a.n=3; //修改这个地址下n的值，原地址没有修改
+}
+fn1(obj);
+console.log(obj); //{n:3}</code></pre>
+<pre><code class="javascript">var obj={n:1};
+function fn1(a){
+    a=5;
+}
+fn1(obj);
+console.log(obj); //{n:1}</code></pre>
+<h3 id="函数参数值的判断"><a href="#函数参数值的判断" class="headerlink" title="函数参数值的判断"></a>函数参数值的判断</h3><p>判断b是不是6种情况，如果是就设置默认值0</p>
+<p>判断a,b是否不是数值，如果不是就设置为默认值0</p>
+<p>如果没有填入b的参数，就让b有一个默认值</p>
+<p>当有参数希望设置为默认值时，尽量将必填参数写在前面，有默认值或者选填的参数写在后面</p>
+<h3 id="函数参数不定值"><a href="#函数参数不定值" class="headerlink" title="函数参数不定值"></a>函数参数不定值</h3><p>arguments 只能在函数中调用，可以获取到所有的参数内容</p>
+<p>arguments.callee; 这是我们当前的函数</p>
+<p>arguments.callee.caller; 执行当前函数的外部函数（回调当前函数的函数）</p>
+<h3 id="函数回调"><a href="#函数回调" class="headerlink" title="函数回调"></a>函数回调</h3><p>把A函数当做B函数参数放入，当运行需要时，在B函数中执行这个参数就可以达到执行A函数的目的</p>
+<h3 id="return"><a href="#return" class="headerlink" title="return"></a>return</h3><p>跳出函数，不执行后面的语句（只能跳出当前函数）</p>
+<p>当在case中使用了return，就不用写break了</p>
+<p>return value 返回一个值，表示该函数执行后会获得一个值</p>
+<p>如果没有使用return返回任何内容，函数执行完成后会获得一个undefined</p>
+<p>return 只能返回一个值</p>
+<p>可以返回函数</p>
+<p>可以返回另一个函数的返回值</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
@@ -510,12 +597,12 @@
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>Hello World</p>
+    <p><span class="copy-title">文章标题:</span>JS基础-2</p>
     
     <p><span class="copy-title">本文作者:</span><a  title="xia xia">xia xia</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-12-02, 08:37:44</p>
-    <p><span class="copy-title">最后更新:</span>2020-02-10, 15:39:57</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/02/hello-world/" title="Hello World">http://yoursite.com/2019/12/02/hello-world/</a>
+    <p><span class="copy-title">发布时间:</span>2020-02-11, 17:45:20</p>
+    <p><span class="copy-title">最后更新:</span>2020-02-11, 20:28:35</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/02/11/JS%E5%9F%BA%E7%A1%80-2/" title="JS基础-2">http://yoursite.com/2020/02/11/JS%E5%9F%BA%E7%A1%80-2/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
