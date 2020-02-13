@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>get与post的异同 | Hexo</title>
+  <title>JS基础-3 | Hexo</title>
   <meta name="keywords" content=" 知识点 ">
-  <meta name="description" content="get与post的异同 | Hexo">
+  <meta name="description" content="JS基础-3 | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="递归在函数内，自己执行自己，将自己复制一个副本，执行这个副本 不停的执行该函数时，就会造成永久性执行（死循环） 因此，递归必须要有一个条件判断的出口，而且必须使用return跳出 或者可以当满足条件时，执行自己的函数 递归解决的是深度遍历，循环解决的是广度遍历 数组基础数组是按照顺序存储一些无序列的元素 定义方法字面量定义var arr&#x3D;[0,1,2,3]; 构造函数定义​    通过构造函数创建">
 <meta name="keywords" content="知识点">
@@ -446,9 +446,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-get与post的异同" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-JS基础-3" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">get与post的异同</h1>
+        <h1 class="article-title">JS基础-3</h1>
     
     <div class="article-meta">
         
@@ -470,7 +470,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-02-10 15:40:00'>2019-12-02 20:32</time>
+        创建时间:<time class="date" title='更新时间: 2020-02-13 20:03:44'>2020-02-12 19:06</time>
         
     </div>
     <div class="article-meta">
@@ -492,7 +492,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#GET-和-POST两种基本请求方法的区别"><span class="toc-text">GET 和 POST两种基本请求方法的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解释"><span class="toc-text">解释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#举例"><span class="toc-text">举例</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#递归"><span class="toc-text">递归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组基础"><span class="toc-text">数组基础</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#定义方法"><span class="toc-text">定义方法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#字面量定义"><span class="toc-text">字面量定义</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#构造函数定义"><span class="toc-text">构造函数定义</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#数组是对象扩展出来的类型"><span class="toc-text">数组是对象扩展出来的类型</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#length"><span class="toc-text">length</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#判断是否为数组类型"><span class="toc-text">判断是否为数组类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#将类数组（列表）转换为数组"><span class="toc-text">将类数组（列表）转换为数组</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组方法（上）"><span class="toc-text">数组方法（上）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#concat"><span class="toc-text">concat</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#join"><span class="toc-text">join</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#push"><span class="toc-text">push</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#unshift"><span class="toc-text">unshift</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pop"><span class="toc-text">pop</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#shift"><span class="toc-text">shift</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组方法（下）"><span class="toc-text">数组方法（下）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#splice"><span class="toc-text">splice</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#slice"><span class="toc-text">slice</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#indexOf"><span class="toc-text">indexOf</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#forEach"><span class="toc-text">forEach</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#map"><span class="toc-text">map</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#reverse"><span class="toc-text">reverse</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sort"><span class="toc-text">sort</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#reduce"><span class="toc-text">reduce</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#some"><span class="toc-text">some</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#every"><span class="toc-text">every</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#filter"><span class="toc-text">filter</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#flatMap"><span class="toc-text">flatMap</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#桥接模式"><span class="toc-text">桥接模式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组遍历和二维数组"><span class="toc-text">数组遍历和二维数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内建对象"><span class="toc-text">内建对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#String基础"><span class="toc-text">String基础</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#替换、截取、切割"><span class="toc-text">替换、截取、切割</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Number类型"><span class="toc-text">Number类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Date类型"><span class="toc-text">Date类型</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -508,22 +508,217 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="GET-和-POST两种基本请求方法的区别"><a href="#GET-和-POST两种基本请求方法的区别" class="headerlink" title="GET 和 POST两种基本请求方法的区别"></a>GET 和 POST两种基本请求方法的区别</h2><ul>
-<li>GET在浏览器回退时是无害的，而POST会再次提交请求</li>
-<li>GET产生的URL地址可以被BookMark（这个URL地址你可以作为书签收藏起来），而POST不可以</li>
-<li>GET请求会被浏览器主动cache（缓存），而POST不会，除非手动设置</li>
-<li>GET请求只能进行URL编码，而POST支持多种编码方式</li>
-<li>GET请求参数会被完整保留在浏览器历史记录里，而POST中的参数不会被保留</li>
-<li>GET请求在URL中传送的参数是由长度限制的，而POST没有</li>
-<li>对参数的数据类型，GET只接受ASCII字符，而POST没有限制</li>
-<li>GET比POST更不安全，因为参数直接暴露在URL上，所以不能用来传递敏感信息</li>
-<li>GET参数通过URL传递，POST放在 Request body 中</li>
-<li>GET产生一个TCP数据包，POST产生两个TCP数据包</li>
-</ul>
-<h2 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h2><p>对于GET方式的请求，浏览器会把http header和data一并发送出去，服务器响应200（返回数据）；而对于POST，浏览器先发送header，服务器响应100 continue，浏览器再发送data，服务器响应200 ok（返回数据）。</p>
-<p>也就是说，GET只需要汽车跑一趟就把货送到了，而POST得跑两趟，第一趟，先去和服务器打个招呼“嗨，我等下要送一批货来，你们打开门迎接我”，然后再回头把货送过去。</p>
-<p>因为POST需要两步，时间上消耗的要多一点，看起来GET比POST更有效。因此Yahoo团队有推荐用GET替换POST来优化网站性能。但这是一个坑！跳入需谨慎。为什么？1. GET与POST都有自己的语义，不能随便混用。2. 据研究，在网络环境好的情况下，发一次包的时间和发两次包的时间差别基本可以无视。而在网络环境差的情况下，两次包的TCP在验证数据包完整性上，有非常大的优点。3. 并不是所有浏览器都会在POST中发送两次包，Firefox就只发送一次。</p>
-<h2 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h2><p>HTTP是基于TCP/IP的关于数据在万维网中如何通信的协议。HTTP的底层是TCP/IP。所以GET和POST的底层也是TCP/IP，也就是说，GET/POST都是TCP链接。GET和POST能做的事情是一样一样的。你要给GET加上request body，给POST带上url参数，技术上是完全行的通的。 在万维网世界中，TCP就像汽车，我们用TCP来运输数据，它很可靠，从来不会发生丢件少件的现象。但是如果路上跑的全是看起来一模一样的汽车，那这个世界看起来是一团混乱，送急件的汽车可能被前面满载货物的汽车拦堵在路上，整个交通系统一定会瘫痪。为了避免这种情况发生，交通规则HTTP诞生了。HTTP给汽车运输设定了好几个服务类别，有GET, POST, PUT, DELETE等等，HTTP规定，当执行GET请求的时候，要给汽车贴上GET的标签（设置method为GET），而且要求把传送的数据放在车顶上（url中）以方便记录。如果是POST请求，就要在车上贴上POST的标签，并把货物放在车厢里。当然，你也可以在GET的时候往车厢内偷偷藏点货物，但是这是很不光彩；也可以在POST的时候在车顶上也放一些数据，让人觉得傻乎乎的。HTTP只是个行为准则，而TCP才是GET和POST怎么实现的基本。 但是，我们只看到HTTP对GET和POST参数的传送渠道（url还是requrest body）提出了要求。“标准答案”里关于参数大小的限制又是从哪来的呢？<br>万维网世界中，还有另一个重要的角色：运输公司。不同的浏览器（发起http请求）和服务器（接受http请求）就是不同的运输公司。 虽然理论上，你可以在车顶上无限的堆货物（url中无限加参数）。但是运输公司可不傻，装货和卸货也是有很大成本的，他们会限制单次运输量来控制风险，数据量太大对浏览器和服务器都是很大负担。业界不成文的规定是，（大多数）浏览器通常都会限制url长度在2K个字节，而（大多数）服务器最多处理64K大小的url。超过的部分，恕不处理。如果你用GET服务，在request body偷偷藏了数据，不同服务器的处理方式也是不同的，有些服务器会帮你卸货，读出数据，有些服务器直接忽略，所以，虽然GET可以带request body，也不能保证一定能被接收到哦。GET和POST本质上就是TCP链接，并无差别。但是由于HTTP的规定和浏览器/服务器的限制，导致他们在应用过程中体现出一些不同。</p>
+        <h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><p>在函数内，自己执行自己，将自己复制一个副本，执行这个副本</p>
+<p>不停的执行该函数时，就会造成永久性执行（死循环）</p>
+<p>因此，递归必须要有一个条件判断的出口，而且必须使用return跳出</p>
+<p>或者可以当满足条件时，执行自己的函数</p>
+<p>递归解决的是深度遍历，循环解决的是广度遍历</p>
+<h3 id="数组基础"><a href="#数组基础" class="headerlink" title="数组基础"></a>数组基础</h3><p>数组是按照顺序存储一些无序列的元素</p>
+<h4 id="定义方法"><a href="#定义方法" class="headerlink" title="定义方法"></a>定义方法</h4><h5 id="字面量定义"><a href="#字面量定义" class="headerlink" title="字面量定义"></a>字面量定义</h5><pre><code class="javascript">var arr=[0,1,2,3];</code></pre>
+<h5 id="构造函数定义"><a href="#构造函数定义" class="headerlink" title="构造函数定义"></a>构造函数定义</h5><p>​    通过构造函数创建数组时，如果参数仅有一个，并且这个参数是数值时，参数作为数组长度</p>
+<p>​    即定义一个具有该数值长度的空数组</p>
+<p>​    但是如果这个数值是小数或者负数就会报错</p>
+<pre><code class="javascript">var arr=new Array(1,2,3,4,5);</code></pre>
+<p>如果参数不是数值就会添加在元素的第一位</p>
+<pre><code class="javascript">var arr=new Array(&quot;3.5&quot;);</code></pre>
+<h5 id="数组是对象扩展出来的类型"><a href="#数组是对象扩展出来的类型" class="headerlink" title="数组是对象扩展出来的类型"></a>数组是对象扩展出来的类型</h5><p>​    数组也是对象，因此也是引用关系，更改数组的元素，也会引起其他引用改地址的变量产生变化</p>
+<pre><code class="javascript">var arr1=new Object([1,2,3,4,5]);
+var arr4=arr1;
+arr1[0]=100;
+console.log(arr4);    //[100,2,3,4,5]</code></pre>
+<h4 id="length"><a href="#length" class="headerlink" title="length"></a>length</h4><p>数组的长度就是数组的元素个数</p>
+<p>length是最后一个元素下标+1</p>
+<pre><code class="javascript">arr[arr.length]=30;    
+//在数组的尾部添加一个新元素
+//添加元素后arr.length会自动发生改变</code></pre>
+<pre><code class="javascript">arr.length=0;    //清空数组</code></pre>
+<h4 id="判断是否为数组类型"><a href="#判断是否为数组类型" class="headerlink" title="判断是否为数组类型"></a>判断是否为数组类型</h4><pre><code class="javascript">Object.prototype.toString.call(arr);
+arr.constructor===Array; //构造函数
+Array.isArray(arr);    //判断是否是数组（ES6）</code></pre>
+<h4 id="将类数组（列表）转换为数组"><a href="#将类数组（列表）转换为数组" class="headerlink" title="将类数组（列表）转换为数组"></a>将类数组（列表）转换为数组</h4><pre><code class="javascript">Array.from(); //ES6
+Array.prototype.slice.call(arguments);
+Array.prototype.concat.apply([],arguments);</code></pre>
+<h3 id="数组方法（上）"><a href="#数组方法（上）" class="headerlink" title="数组方法（上）"></a>数组方法（上）</h3><h4 id="concat"><a href="#concat" class="headerlink" title="concat"></a>concat</h4><p>数组A.concat(数组B)；连接数组，并将连接后的新数组返回</p>
+<pre><code class="javascript">var arr4=arr1.concat(); 
+//如果不填写参数或者填写参数是空数组，都会将数组复制形成新数组返回</code></pre>
+<pre><code class="javascript">var arr5=arr1.concat(10,20);
+//如果直接在参数中填入内容，而非数组，就可以将这些内容添加在新数组的尾部</code></pre>
+<pre><code class="javascript">arr1=arr1.concat(10,20);
+//产生新数组将原来的arr1覆盖了，并且在尾部添加了10，20</code></pre>
+<pre><code class="javascript">var arr6=arr1.concat(arr2,[10,20]);
+//如果写入的参数是多个数组，就可以将多个数组和当前数组合并形成一个新的数组
+var arr6=arr1.concat(arr2,10,20);
+//如果添加数组和元素混合和上面相同</code></pre>
+<pre><code class="javascript">var arr7=arr1.concat({a:1,b:2});
+//连接对象是把对象当成元素放入</code></pre>
+<pre><code class="javascript">var arr=Array.prototype.concat.apply(arr1.arguments);
+//数组和类数组的连接</code></pre>
+<p>数组也是对象，因此也是引用关系，更改数组的元素，也会引起其它引用改地址的变量展示发生变化</p>
+<pre><code class="javascript">var arr4=arr1;
+arr1[0]=100;
+console.log(arr4); </code></pre>
+<h4 id="join"><a href="#join" class="headerlink" title="join"></a>join</h4><pre><code class="javascript">var arr=[1,2,3,4,5];
+//将数组中的元素通过连接字符连接形成新的字符串
+var str=arr.join(&quot;-&quot;);
+var str=arr.join(&quot;|&quot;);</code></pre>
+<pre><code class="javascript">var str=arr.join();
+//默认空时使用.连接</code></pre>
+<pre><code class="javascript">var str=arr.join(&quot;&quot;);
+//将每个字符紧密连接在一起</code></pre>
+<h4 id="push"><a href="#push" class="headerlink" title="push"></a>push</h4><p>在数组的尾部添加一个或者多个元素，并且返回该数组的新长度</p>
+<pre><code class="javascript">var len=arr.push(50,10);
+//如果添加的是数组，将会把数组作为元素添加在尾部</code></pre>
+<h4 id="unshift"><a href="#unshift" class="headerlink" title="unshift"></a>unshift</h4><p>在数组的头部添加一个或者多个元素，并且返回该数组的新长度</p>
+<pre><code class="javascript">var len=arr.unshift(0,-1);
+//效率低下，因为每次插入数据，数组中的所有值都向后移一位</code></pre>
+<h4 id="pop"><a href="#pop" class="headerlink" title="pop"></a>pop</h4><pre><code class="javascript">var item=arr.pop();
+//删除数组的最尾部一个元素，并且返回被删除的元素</code></pre>
+<h4 id="shift"><a href="#shift" class="headerlink" title="shift"></a>shift</h4><pre><code class="javascript">var item=arr.shift();
+//删除数组的最前面一个元素，并且返回被删除的元素</code></pre>
+<h3 id="数组方法（下）"><a href="#数组方法（下）" class="headerlink" title="数组方法（下）"></a>数组方法（下）</h3><h4 id="splice"><a href="#splice" class="headerlink" title="splice"></a>splice</h4><p>给数组添加/删除/替换一个或多个元素，并且返回被删除的元素组成的新数组</p>
+<p>arr.splice(开始位置，删除多少个元素，添加什么元素)；</p>
+<pre><code class="javascript">var arr1=arr.splice(); //重建一个空数组</code></pre>
+<pre><code class="javascript">var arr1=arr.splice(0); 
+//将数组的所有元素转移到另一个数组中，本数组变为空</code></pre>
+<pre><code class="javascript">var arr1=arr.splice(-1); 
+//负数是指从后向前，-1表示仅删除最后一个并返回到新数组中</code></pre>
+<pre><code class="javascript">var arr1=arr.splice(-2); 
+//删除最后两个并返回这个被删除的数组（将最后两位移到新数组中）</code></pre>
+<pre><code class="javascript">var arr1=arr.splice(0,1); 
+//表示删除数组的第0位元素，并且返回到新数组中（将数组的第0位移到新数组中）</code></pre>
+<pre><code class="javascript">var arr1=arr.splice(0,2);
+//表示将前两位移动到新数组中</code></pre>
+<pre><code class="javascript">var arr1=arr.splice(2,2,6,7); 
+//表示从下标为2开始删除后面的两个元素，返回到新数组中，并且在这个位置添加6,7
+//意味着将数组的第二位及以后的两个元素替换为6和7</code></pre>
+<h4 id="slice"><a href="#slice" class="headerlink" title="slice"></a>slice</h4><p>slice 截取，将数组的从指定的开始位置到结束位置截取复制返回新数组，原数组不变</p>
+<p>arr.slice(开始位置，结束位置)</p>
+<pre><code class="javascript">var arr1=arr.slice(1,3);
+//从数组的第一项开始截取到第三项之前</code></pre>
+<pre><code class="javascript">var arr1=arr.slice();
+//复制arr数组到arr1中，没有引用关系，改变一个的值，另一个不会改变
+var arr1=arr.slice(0);
+//同上</code></pre>
+<pre><code class="javascript">var arr1=arr.slice(-1);
+//复制数组的最后一个元素到新数组</code></pre>
+<pre><code class="javascript">var arr1=arr.slice(2，-1);
+//从下标为2到倒数最后一个之前复制</code></pre>
+<pre><code class="javascript">var arr1=arr.slice(-3,-1);
+var arr1=arr.slice(1,3);
+//保证在开始位置和结束位置是统一的正数或者负数，然后开始位置必须小于结束位置</code></pre>
+<h4 id="indexOf"><a href="#indexOf" class="headerlink" title="indexOf"></a>indexOf</h4><p>在数组中查找元素的位置（下标），如果没有找到返回-1</p>
+<p>indexOf(查找的内容，从第几个开始查找)</p>
+<p>lastIndexOf(); 从后向前查找</p>
+<h4 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h4><p>遍历arr数组，执行里面的函数，传入参数第一个参数是数组的每个元素，第二个参数是每个元素的下标，第三个参数是数组自身</p>
+<h4 id="map"><a href="#map" class="headerlink" title="map"></a>map</h4><p>使用map遍历，可以使用return返回新数组的元素，最后形成一个新数组</p>
+<p>map遍历返回时，原数组的长度和新数组的长度完全相同</p>
+<p>不能作为筛选使用，因为map遍历返回的数组和原数组长度相同</p>
+<h4 id="reverse"><a href="#reverse" class="headerlink" title="reverse"></a>reverse</h4><p>倒序 将数组倒序，返回原数组，改变原数组</p>
+<h4 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h4><p>采用冒泡算法的原理</p>
+<p>先将数组中的元素转换为字符串，然后将该字符串的第一个字符取出，在转换为Unicode编码，然后比较</p>
+<p>如果两个被比较的第一个字符Unicode编码相同时，会将下一个字符转换成Unicode编码在进行比较，直到完毕。</p>
+<pre><code class="javascript">var arr=[2,5,1,3,4,7,9,8,6,10,13];
+arr.sort(function(a,b){
+    return a-b;
+});
+//a-b    从小到大排序
+//b-a    从大到小排序</code></pre>
+<h4 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h4><p>arr.reduce(fn,initValue);    第一个参数是回调函数，第二个参数是初始值</p>
+<p>回调函数中有四个参数，第一个是上次归并的结果，第二个是遍历的元素，第三个是下标，第四个是数组</p>
+<p>没有initValue（初始值）时</p>
+<p>​    第一次进入遍历时，value就是数组的第0项，item则是第1项，从第1项开始遍历数组到尾部</p>
+<p>​    如果没有使用return返回值，在下一次遍历时，归并值就是undefined</p>
+<p>如果有initValue时</p>
+<p>​    第一次进入的value就是initValue的值，遍历则从第0项开始</p>
+<h4 id="some"><a href="#some" class="headerlink" title="some"></a>some</h4><p>数组中判断是否有满足条件，如果有则返回true，并且不再继续遍历判断</p>
+<h4 id="every"><a href="#every" class="headerlink" title="every"></a>every</h4><p>数组中判断是否没一个都满足条件，如果有一个是不满足条件的，则不继续遍历，直接返回为false</p>
+<h4 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h4><p>return返回满足条件的元素</p>
+<h4 id="flatMap"><a href="#flatMap" class="headerlink" title="flatMap"></a>flatMap</h4><p>扁平化数组 是指将一个多维数组变为一维数组</p>
+<h4 id="桥接模式"><a href="#桥接模式" class="headerlink" title="桥接模式"></a>桥接模式</h4><p>forEach、map、sort、reduce、some、every、filter、flatMap</p>
+<h3 id="数组遍历和二维数组"><a href="#数组遍历和二维数组" class="headerlink" title="数组遍历和二维数组"></a>数组遍历和二维数组</h3><p>数组是一个紧密型的数据结构</p>
+<p>数组元素有属性，for in会遍历到属性，for语句不会，forEach语句也不会遍历属性</p>
+<p>数组中有空元素，for in不会遍历空元素，for语句会遍历空元素，forEach不会遍历空元素</p>
+<p>当使用for in遍历时，索引值都会当成对象的属性来遍历，因此索引值会变成字符类型</p>
+<h3 id="内建对象"><a href="#内建对象" class="headerlink" title="内建对象"></a>内建对象</h3><p>Math是一个静态方法集</p>
+<pre><code class="javascript">Math.abs(); //求绝对值</code></pre>
+<p>求整数的输入</p>
+<pre><code class="javascript">Math.ceil(); //向上舍入
+Math.floor(); //向下舍入
+Math.round(); //四舍五入</code></pre>
+<pre><code class="javascript">Math.max(3,6,9); //最大值
+Math.max.apply(null,arr); //求数组的最大值
+Math.min(3,6,9); //最小值
+Math.min.apply(null,arr); //求数组的最小值</code></pre>
+<pre><code class="javascript">Math.sqrt(4); //求平方根</code></pre>
+<pre><code class="javascript">Math.pow(2,128); //求2的128次幂
+Math.pow(4,1/2); //效率比sqrt要低
+Math.pow(4,1/3); //求立方根</code></pre>
+<pre><code class="javascript">Math.random(); //随机值0-1之间，不包含0和1</code></pre>
+<h3 id="String基础"><a href="#String基础" class="headerlink" title="String基础"></a>String基础</h3><p>所有的字符串方法都不会改变原字符串</p>
+<pre><code class="javascript">var str=&quot;abcdef&quot;; //string 存储在栈中
+var str=new String(&quot;abcdef&quot;); //Object 存在堆中
+str[0]; //str字符串中第0位的字符
+
+//不能设置和改变该字符串中对应位置的字符内容
+str[0]=&quot;z&quot;; //不可修改，只能获取</code></pre>
+<pre><code class="javascript">str.length  //获取字符串的长度，包含了多少个字符，中文单字长度也是1
+str.charAt(0); //相当于 str[0]
+str.charCodeAt(0); //返回第几个下标对应字符的Unicode编码
+string.formCharCode(97); //将Unicode编码转换成字符
+indexOf(); //同数组中一样
+lastIndexOf(); //同数组中一样
+str.search(&quot;b&quot;); //主要用在正则表达式中
+str.match(&quot;a&quot;); //主要用在正则表达式中</code></pre>
+<h4 id="替换、截取、切割"><a href="#替换、截取、切割" class="headerlink" title="替换、截取、切割"></a>替换、截取、切割</h4><p>原字符串不改变</p>
+<p><strong>替换</strong></p>
+<p>str.replace(要查找的字符或字符串|要查找的正则表达式，要替换的字符串|函数);</p>
+<p><strong>截取</strong></p>
+<p>str.substring(start,end);     //截取</p>
+<pre><code class="javascript">//substring负数是0之前的，只要是负数就可以理解为0（负数无效可以理解为0）
+str1=str.substring(3,1); //从后向前截取</code></pre>
+<p>str.substr(start,length);    //截取</p>
+<p>从第几位开始向后截取多少长度的字符串，第二个参数必须大于0</p>
+<p>str.slice(start,end);    //与数组的slice完全相同</p>
+<p><strong>切割</strong></p>
+<p>ste.split(“”);    //分割</p>
+<p><strong>其他</strong></p>
+<p>str.toUpperCase();    //转换为大写</p>
+<p>str.toLowerCase();    //转换为小写</p>
+<p>JSON.stringify(obj);    //将对象转换为JSON字符串格式</p>
+<p>JSON.parse(str);    //将JSON字符串转换为对象</p>
+<h3 id="Number类型"><a href="#Number类型" class="headerlink" title="Number类型"></a>Number类型</h3><pre><code class="javascript">var a=5; //number 存在栈中
+var a1=new Number(5); //Object Number 存在堆中
+Number.MAX_VALUE; //1.7976931348623157e+308
+Number.MIN_VALUE; //5e-324
+Number.POSITIVE_INFINITY; //正无穷 Infinity
+Number.NEGATIVE_INFINITY; //负无穷 -Infinity
+Number.NaN; //NaN</code></pre>
+<pre><code>var a=0.350786;
+console.log(a.toExponential(10)); //3.5078600000e-1
+console.log(a.toPrecision(1)); //0.4 会四舍五入</code></pre><h3 id="Date类型"><a href="#Date类型" class="headerlink" title="Date类型"></a>Date类型</h3><pre><code class="javascript">var date=new Date();
+date.getTime(); //1970.1.1 到现在的毫秒数，永远不重复，可以用作时间戳
+//F5刷新时从缓存中获取数据</code></pre>
+<p>实例</p>
+<pre><code class="javascript">var img=new Image();
+img.src=&quot;./img/a.jpg?time=&quot; + (new Date()).getTime();
+//保证图片每次都取到最新的，不去缓存中获取</code></pre>
+<p>获取时间</p>
+<pre><code class="javascript">var date=new Date();
+date.getFullYear(); //年
+date.getDate(); //日期
+date.getMonth(); //月份 0-11
+date.getDay(); //星期 0-6 0是周日
+date.getHours(); //小时
+date.getMinutes(); //分钟
+date.getMilliseconds(); //毫秒
+date.getseconds(); //秒
+date.toUTCString(); //转换为格林尼治时间字符串
+date.getUTCHours(); //获取格林尼治时间小时</code></pre>
+<p>设置时间</p>
+<p>设置时间超过最大值就会进位</p>
+<pre><code class="javascript">date.setHours(25);
+date.setMonth(12);
+date.setMinutes(date.getMinutes()+30);</code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
@@ -537,12 +732,12 @@
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>get与post的异同</p>
+    <p><span class="copy-title">文章标题:</span>JS基础-3</p>
     
     <p><span class="copy-title">本文作者:</span><a  title="xia xia">xia xia</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-12-02, 20:32:22</p>
-    <p><span class="copy-title">最后更新:</span>2020-02-10, 15:40:00</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/02/get%E4%B8%8Epost%E7%9A%84%E5%BC%82%E5%90%8C/" title="get与post的异同">http://yoursite.com/2019/12/02/get%E4%B8%8Epost%E7%9A%84%E5%BC%82%E5%90%8C/</a>
+    <p><span class="copy-title">发布时间:</span>2020-02-12, 19:06:52</p>
+    <p><span class="copy-title">最后更新:</span>2020-02-13, 20:03:44</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/02/12/JS%E5%9F%BA%E7%A1%80-3/" title="JS基础-3">http://yoursite.com/2020/02/12/JS%E5%9F%BA%E7%A1%80-3/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
