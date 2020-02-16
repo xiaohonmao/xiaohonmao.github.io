@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>js中的call、apply、bind | Hexo</title>
-  <meta name="keywords" content=" ES6 ">
-  <meta name="description" content="js中的call、apply、bind | Hexo">
+  <title>面试编程题 | Hexo</title>
+  <meta name="keywords" content=" 阿里 ">
+  <meta name="description" content="面试编程题 | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="题目 * 请用您认为最优化的方式，将arr中的type为4的数据过滤出来， ​      * 然后按相同的 name + date（按天）合并value（value累加）， ​      * 然后按 value 降序(从大到小)排序， ​      * 最后每行按照 “${name},${本地日期},售出${sum(value)}部” 的格式，如：”小米2,2017年06月08日,售出5部”, 打">
 <meta name="keywords" content="阿里">
@@ -474,9 +474,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-js中的call、apply、bind" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-面试编程题" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">js中的call、apply、bind</h1>
+        <h1 class="article-title">面试编程题</h1>
     
     <div class="article-meta">
         
@@ -484,21 +484,21 @@
         
         <span class="book">
             
-                <a  data-rel="javascript">javascript</a>
+                <a  data-rel="面试题">面试题</a>
             
         </span>
         
         
         <span class="tag">
             
-            <a class="color4">ES6</a>
+            <a class="color3">阿里</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-02-10 15:39:43'>2019-12-17 17:51</time>
+        创建时间:<time class="date" title='更新时间: 2020-02-16 10:58:51'>2020-02-16 10:44</time>
         
     </div>
     <div class="article-meta">
@@ -520,7 +520,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目"><span class="toc-text">题目</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -536,7 +536,119 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p> <em>* 请用您认为最优化的方式，将arr中的type为4的数据过滤出来，</em></p>
+<p>​      <em>* 然后按相同的 name + date（按天）合并value（value累加），</em></p>
+<p>​      <em>* 然后按 value 降序(从大到小)排序，</em></p>
+<p>​      <em>* 最后每行按照 “${name},${本地日期},售出${sum(value)}部” 的格式，如：”小米2,2017年06月08日,售出5部”, 打印(console.log)出来。</em></p>
+<p>​      <em>* 可以使用第三方js库，可以使用es6。</em></p>
+<p>​      <em>* 请在半小时内完成。</em></p>
+<p>​      <em>要求最后输出结果样例如下:</em></p>
+<p>​      <em>oppor9,2017年06月04日,售出7部</em></p>
+<p>​      <em>魅蓝note2,2017年06月07日,售出6部</em></p>
+<p>​      <em>魅蓝note2,2017年06月02日,售出5部</em></p>
+<p>​      <em>小米2,2017年06月08日,售出5部</em></p>
+<p>​      <em>……</em></p>
+<pre><code class="javascript">var arr = [
+
+      { name: &#39;小米1&#39;, value: 1, type: 2, date: &#39;2018-06-07T08:00:01.589Z&#39; },
+
+      { name: &#39;锤子T1&#39;, value: 1, type: 2, date: &#39;2018-06-07T08:10:01.589Z&#39; },
+
+      { name: &#39;小米2&#39;, value: 1, type: 4, date: &#39;2018-06-07T20:00:01.589Z&#39; },
+
+      { name: &#39;小米2&#39;, value: 4, type: 4, date: &#39;2018-06-07T20:10:21.189Z&#39; },
+
+      { name: &#39;小米4&#39;, value: 1, type: 4, date: &#39;2018-06-07T08:00:01.560Z&#39; },
+
+      { name: &#39;小米4&#39;, value: 2, type: 4, date: &#39;2018-06-07T08:10:31.584Z&#39; },
+
+      { name: &#39;小米6&#39;, value: 1, type: 3, date: &#39;2018-06-07T08:00:01.589Z&#39; },
+
+      { name: &#39;小米5s&#39;, value: 1, type: 4, date: &#39;2018-06-07T08:00:01.589Z&#39; },
+
+      { name: &#39;锤子T2&#39;, value: 1, type: 4, date: &#39;2018-06-07T08:00:01.589Z&#39; },
+
+      { name: &#39;锤子T1&#39;, value: 4, type: 4, date: &#39;2018-06-07T08:06:01.589Z&#39; },
+
+      { name: &#39;魅蓝note5&#39;, value: 1, type: 4, date: &#39;2018-06-07T08:00:01.589Z&#39; },
+
+      { name: &#39;魅蓝note2&#39;, value: 5, type: 4, date: &#39;2018-06-02T08:07:01.589Z&#39; },
+
+      { name: &#39;魅蓝note2&#39;, value: 6, type: 4, date: &#39;2018-06-07T08:00:01.589Z&#39; },
+
+      { name: &#39;魅蓝note3&#39;, value: 1, type: 4, date: &#39;2018-06-05T08:00:01.589Z&#39; },
+
+      { name: &#39;魅蓝note&#39;, value: 1, type: 4, date: &#39;2018-06-07T08:00:01.589Z&#39; },
+
+      { name: &#39;oppor9&#39;, value: 7, type: 4, date: &#39;2018-06-04T08:04:01.588Z&#39; },
+
+      { name: &#39;华为p9&#39;, value: 1, type: 4, date: &#39;2018-06-02T08:00:01.577Z&#39; },
+
+      { name: &#39;华为p9&#39;, value: 2, type: 4, date: &#39;2018-06-07T08:00:01.110Z&#39; },
+
+      { name: &#39;华为p10&#39;, value: 1, type: 1, date: &#39;2018-06-07T08:00:01.534Z&#39; }
+
+    ];
+
+
+    function printArray(arr) {
+      // 通过条件筛选出type为4的值，并将日期做一个截取，只要年月日
+      const res = arr.filter(function (item, index, arr) {
+        item.date = item.date.split(&#39;T&#39;)[0]
+        // console.log(item.date)
+        return item.type === 4
+      })
+      // console.log(res)
+      const newArr = []
+      const temp = {}
+
+      // 在for循环里面新定义一个key做name和date的字符串拼接
+      // 在判断条件里面，如果在对象temp里面对应的key存在，则将value值累加，
+      //否则添加key并将value值新赋值给对应的key
+      for (const i in res) {
+        const key = `${res[i].name}@${res[i].date}`
+        if (temp[key]) {
+          temp[key] += res[i].value
+        } else {
+          temp[key] = res[i].value
+        }
+      }
+      // console.log(temp)
+
+      // 在定义一个for循环，新定义一个临时变量tempObj，遍历对象，对每一个对象的key值做分割，
+      // 重新赋值给key，并存储在临时变量tempObj里面，最后将tempObj添加到外面定义的新对象里面
+      for (const key in temp) {
+        const tempObj = {}
+        tempObj.name = key.split(&#39;@&#39;)[0]
+        tempObj.date = key.split(&#39;@&#39;)[1]
+        tempObj.value = temp[key]
+        newArr.push(tempObj)
+      }
+      // console.log(newArr)
+
+      // 定义排序函数
+      function compare(prop) {
+        return function (a, b) {
+          const value1 = a[prop]
+          const value2 = b[prop]
+          return value2 - value1
+        }
+      }
+
+      // 调用排序函数，按照value值做降序排序
+      newArr.sort(compare(&#39;value&#39;))
+      // console.log(newArr)
+
+      newArr.forEach((item, index) =&gt; {
+        const printStr = `${item.name},
+            ${item.date.split(&#39;-&#39;)[0]}年${item.date.split(&#39;-&#39;)[1]}月
+            ${item.date.split(&#39;-&#39;)[2]}日，售出${item.value}部`
+        console.log(printStr)
+      })
+    }
+
+    printArray(arr);</code></pre>
+
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
     </div>
@@ -549,12 +661,12 @@
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>js中的call、apply、bind</p>
+    <p><span class="copy-title">文章标题:</span>面试编程题</p>
     
     <p><span class="copy-title">本文作者:</span><a  title="xia xia">xia xia</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-12-17, 17:51:07</p>
-    <p><span class="copy-title">最后更新:</span>2020-02-10, 15:39:43</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/17/js%E4%B8%AD%E7%9A%84call%E3%80%81apply%E3%80%81bind/" title="js中的call、apply、bind">http://yoursite.com/2019/12/17/js%E4%B8%AD%E7%9A%84call%E3%80%81apply%E3%80%81bind/</a>
+    <p><span class="copy-title">发布时间:</span>2020-02-16, 10:44:00</p>
+    <p><span class="copy-title">最后更新:</span>2020-02-16, 10:58:51</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/02/16/%E9%9D%A2%E8%AF%95%E7%BC%96%E7%A8%8B%E9%A2%98/" title="面试编程题">http://yoursite.com/2020/02/16/%E9%9D%A2%E8%AF%95%E7%BC%96%E7%A8%8B%E9%A2%98/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>

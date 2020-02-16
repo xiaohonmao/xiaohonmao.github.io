@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>js中的call、apply、bind | Hexo</title>
-  <meta name="keywords" content=" ES6 ">
-  <meta name="description" content="js中的call、apply、bind | Hexo">
+  <title>JS基础-4 | Hexo</title>
+  <meta name="keywords" content=" 知识点 ">
+  <meta name="description" content="JS基础-4 | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="题目 * 请用您认为最优化的方式，将arr中的type为4的数据过滤出来， ​      * 然后按相同的 name + date（按天）合并value（value累加）， ​      * 然后按 value 降序(从大到小)排序， ​      * 最后每行按照 “${name},${本地日期},售出${sum(value)}部” 的格式，如：”小米2,2017年06月08日,售出5部”, 打">
 <meta name="keywords" content="阿里">
@@ -474,9 +474,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-js中的call、apply、bind" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-JS基础-4" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">js中的call、apply、bind</h1>
+        <h1 class="article-title">JS基础-4</h1>
     
     <div class="article-meta">
         
@@ -491,14 +491,14 @@
         
         <span class="tag">
             
-            <a class="color4">ES6</a>
+            <a class="color4">知识点</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-02-10 15:39:43'>2019-12-17 17:51</time>
+        创建时间:<time class="date" title='更新时间: 2020-02-16 09:37:28'>2020-02-14 14:11</time>
         
     </div>
     <div class="article-meta">
@@ -520,7 +520,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#BOM"><span class="toc-text">BOM</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#window"><span class="toc-text">window</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#文档宽度高度"><span class="toc-text">文档宽度高度</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#window-location本地"><span class="toc-text">window.location本地</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#window-history-历史"><span class="toc-text">window.history 历史</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#window-screen屏幕信息"><span class="toc-text">window.screen屏幕信息</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#window-navigator导航信息"><span class="toc-text">window.navigator导航信息</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM"><span class="toc-text">DOM</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#DOM基础"><span class="toc-text">DOM基础</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#外链样式"><span class="toc-text">外链样式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#基本标签"><span class="toc-text">基本标签</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#页面加载执行原理"><span class="toc-text">页面加载执行原理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#元素标签的检查与判断"><span class="toc-text">元素标签的检查与判断</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DOM节点"><span class="toc-text">DOM节点</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#节点分类"><span class="toc-text">节点分类</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#获取DOM元素的方法"><span class="toc-text">获取DOM元素的方法</span></a></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -536,7 +536,112 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h3><p>BOM  —（Browser Object Model）</p>
+<h4 id="window"><a href="#window" class="headerlink" title="window"></a>window</h4><p>BOM的最顶层对象</p>
+<p>open();    打开</p>
+<p>close();     关闭</p>
+<h5 id="文档宽度高度"><a href="#文档宽度高度" class="headerlink" title="文档宽度高度"></a>文档宽度高度</h5><p>innerWidth 返回窗口的文档显示区的宽度</p>
+<p>innerHeight 返回窗口的文档显示区的高度</p>
+<p>使用 innerWidth 和 innerHeight 属性获取去除工具条与滚动条的窗口高度与宽度</p>
+<p>outerWidth 属性设置或返回窗口的外部宽度，包括所有的界面元素（如工具栏/滚动条）</p>
+<p>outerHeight 属性设置或返回一个窗口的外部高度，包括所有的界面元素（如工具栏/滚动条）</p>
+<p>使用 outerWidth 和 outerHeight 属性获取加上工具条与滚动条窗口的宽度与高度</p>
+<p>到屏幕左上角位置</p>
+<p>screenLeft，screenTop</p>
+<p>screenX，screenY</p>
+<h5 id="window-location本地"><a href="#window-location本地" class="headerlink" title="window.location本地"></a>window.location本地</h5><p>location.reload();    重新载入</p>
+<p>​    F5 调用缓存</p>
+<p>​    reload 请求服务时，没有在http标签头部消息中有缓存标记，意味着不会调用缓存数据</p>
+<pre><code class="javascript">location.href=&quot;http://www.163.com&quot;;
+//不会在新窗口打开，有历史记录</code></pre>
+<pre><code class="javascript">location.assign=&quot;http://www.163.com&quot;;
+//不会在新窗口打开，有历史记录</code></pre>
+<pre><code class="javascript">location.replace=&quot;http://www.163.com&quot;;
+//不会在新窗口打开，没有历史记录，不能回退</code></pre>
+<p>location.hash</p>
+<p>浏览器地址栏中的”#”后面的内容，常用于路由跳转，超链接的锚点标记</p>
+<p>location.search();</p>
+<p>浏览器地址栏中的”?”后面的内容，表单的GIT数据提交或者页面的传参</p>
+<p>location.hostname;    域 IP地址不带端口号</p>
+<p>location.port;    端口号</p>
+<p>location.protocol;    协议 例如：http、https</p>
+<h5 id="window-history-历史"><a href="#window-history-历史" class="headerlink" title="window.history 历史"></a>window.history 历史</h5><p>锚点标记可以设置在普通标签里，也可以设置在a标签的内容里</p>
+<p>当前页面的锚点，不会跳转页面，不会重新执行当前页面的script</p>
+<p>历史记录会记录当前页面中所有操作过的内容，包括文本框中的内容（除了密码），都会保留下来</p>
+<p>history.back();    后退一步</p>
+<p>history.length();    历史记录数</p>
+<p>history.forward();    前进一步</p>
+<p>history.go(0);    刷新页面，会重新执行script标签内容</p>
+<p>history.go(1);    同forward        </p>
+<p>history.go(-1);    同back</p>
+<h5 id="window-screen屏幕信息"><a href="#window-screen屏幕信息" class="headerlink" title="window.screen屏幕信息"></a>window.screen屏幕信息</h5><p>屏幕不含任务栏的高度与宽度</p>
+<p>​    screen.availWidth</p>
+<p>​    screen.availHeight</p>
+<p>带屏幕下方任务栏的高度</p>
+<p>​    screen.width</p>
+<p>​    screen.height</p>
+<h5 id="window-navigator导航信息"><a href="#window-navigator导航信息" class="headerlink" title="window.navigator导航信息"></a>window.navigator导航信息</h5><p>navigator.userAgent    浏览器的信息</p>
+<p>navigator.appName    返回浏览器的名称</p>
+<p>navigator.appversion    版本号</p>
+<p>navigator.platform    运行平台，判断手机系统</p>
+<h3 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h3><h4 id="DOM基础"><a href="#DOM基础" class="headerlink" title="DOM基础"></a>DOM基础</h4><h5 id="外链样式"><a href="#外链样式" class="headerlink" title="外链样式"></a>外链样式</h5><link>从外部加载css样式，仅加载进来
+
+<pre><code class="javascript">&lt;script src=&quot;a.js&quot;&gt;&lt;/script&gt;
+//加载进来之后执行该script标签内容。同步顺序，或导致加载拥塞</code></pre>
+<pre><code class="javascript">&lt;script src=&quot;a.js&quot; async&gt;&lt;/script&gt;
+//异步过程 加载的过程中会执行下一个标签</code></pre>
+<pre><code class="javascript">&lt;script src=&quot;a.js&quot; defer&gt;&lt;/script&gt;
+//页面全部加载完成之后在执行该script标签</code></pre>
+<h5 id="基本标签"><a href="#基本标签" class="headerlink" title="基本标签"></a>基本标签</h5><p>window 是BOM的根节点</p>
+<p>document 是DOM的根节点</p>
+<pre><code class="javascript">document.documentElement    //HTML标签
+document.head    //head标签
+document.body    //body标签
+document.title    //title标签
+document.domain    //域名</code></pre>
+<h5 id="页面加载执行原理"><a href="#页面加载执行原理" class="headerlink" title="页面加载执行原理"></a>页面加载执行原理</h5><p>生成DOM树。从根节点开始，按照标签的顺序逐个生成</p>
+<p>生成CSS树。外链css、style中的css、行内样式统一生成一个css树</p>
+<p>合并生成页面的渲染树</p>
+<p>如果需要获取已经完成渲染后的DOM样式时</p>
+<p>首先需要将渲染树拆分为DOM树和CSS树两部分</p>
+<p>然后再从css中获取计算后的样式，实际核算中属于同一个拆分过程</p>
+<h5 id="元素标签的检查与判断"><a href="#元素标签的检查与判断" class="headerlink" title="元素标签的检查与判断"></a>元素标签的检查与判断</h5><p>console.log(div);    通过标签名获取元素并打印出HTMLCollection[div]</p>
+<p>console.dir(div);    打印出div对象</p>
+<pre><code class="javascript">var div0=document.getElementsByClassName(&quot;div0&quot;);
+div0.constructor===HTMLDivElement; //判断元素是否是div标签
+ul.constructor===HTMLUListElement; //ul
+a.constructor===HTMLAchorElement; //超链接</code></pre>
+<p>HTMLDivEelement–&gt;HTMLElement–&gt;Element–&gt;Node–&gt;EventTarget–&gt;Object</p>
+<h4 id="DOM节点"><a href="#DOM节点" class="headerlink" title="DOM节点"></a>DOM节点</h4><p>document 是文档节点 9</p>
+<p>div a span 都是元素节点 1</p>
+<p>标签属性 是属性节点</p>
+<p>标签中的文本 是文本节点 3</p>
+<p>注释 是注释节点 8</p>
+<p>nodeName</p>
+<p>​    文本 #text</p>
+<p>​    注释 #comment</p>
+<p>​    元素 标签名（大写）</p>
+<p>nodeValue</p>
+<p>​    注释 注释内容</p>
+<p>​    文本 文本内容</p>
+<p>​    元素 null</p>
+<h5 id="节点分类"><a href="#节点分类" class="headerlink" title="节点分类"></a>节点分类</h5><p>均以document.body开头，表示body下的</p>
+<p>​    children    //子元素列表</p>
+<p>​    childNodes    //子节点列表</p>
+<p>​    parentNode    //父节点</p>
+<p>​    parentElement    //父元素</p>
+<p>​    firstChild    //第一个子节点</p>
+<p>​    firstElementChild    //第一个子元素</p>
+<p>​    lastChild    //最后一个子节点</p>
+<p>​    lastElementChild    //最后一个子元素</p>
+<p>​    previousSibling    //上一个兄弟节点</p>
+<p>​    previousElementSibling    //上一个兄弟元素</p>
+<p>​    nextSibling    //下一个兄弟节点</p>
+<p>​    nextElementSibling    //下一个兄弟元素</p>
+<p>注意：节点包括元素，元素仅指标签</p>
+<h5 id="获取DOM元素的方法"><a href="#获取DOM元素的方法" class="headerlink" title="获取DOM元素的方法"></a>获取DOM元素的方法</h5><pre><code class="JavaScript">document.getElementById(&quot;id&quot;);
+//获取的元素就有一个，也是唯一的</code></pre>
+<pre><code></code></pre>
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
     </div>
@@ -549,12 +654,12 @@
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>js中的call、apply、bind</p>
+    <p><span class="copy-title">文章标题:</span>JS基础-4</p>
     
     <p><span class="copy-title">本文作者:</span><a  title="xia xia">xia xia</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-12-17, 17:51:07</p>
-    <p><span class="copy-title">最后更新:</span>2020-02-10, 15:39:43</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/17/js%E4%B8%AD%E7%9A%84call%E3%80%81apply%E3%80%81bind/" title="js中的call、apply、bind">http://yoursite.com/2019/12/17/js%E4%B8%AD%E7%9A%84call%E3%80%81apply%E3%80%81bind/</a>
+    <p><span class="copy-title">发布时间:</span>2020-02-14, 14:11:37</p>
+    <p><span class="copy-title">最后更新:</span>2020-02-16, 09:37:28</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/02/14/JS%E5%9F%BA%E7%A1%80-4/" title="JS基础-4">http://yoursite.com/2020/02/14/JS%E5%9F%BA%E7%A1%80-4/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
