@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>JavaScript-try-catch | Hexo</title>
+  <title>ES6基础-1 | Hexo</title>
   <meta name="keywords" content=" 知识点 ">
-  <meta name="description" content="JavaScript-try-catch | Hexo">
+  <meta name="description" content="ES6基础-1 | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="keywords" content="知识点">
 <meta property="og:type" content="article">
@@ -488,9 +488,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-JavaScript-try-catch" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-ES6基础-1" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">JavaScript-try-catch</h1>
+        <h1 class="article-title">ES6基础-1</h1>
     
     <div class="article-meta">
         
@@ -498,7 +498,7 @@
         
         <span class="book">
             
-                <a  data-rel="javascript">javascript</a>
+                <a  data-rel="ES6">ES6</a>
             
         </span>
         
@@ -512,7 +512,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-02-10 15:39:46'>2019-12-15 00:28</time>
+        创建时间:<time class="date" title='更新时间: 2020-02-17 16:16:52'>2020-02-17 16:09</time>
         
     </div>
     <div class="article-meta">
@@ -550,67 +550,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>try 语句测试代码块的错误<br>        catch 语句处理错误<br>        throw 语句创建自定义错误</p>
-<p>​    JavaScript 抛出错误<br>​        当错误发生时，当事情出问题时，JavaScript引擎通常会停止，并生成一个错误消息。</p>
-<p>​    JavaScript 测试和捕捉<br>​        try 语句允许我们定义在执行时进行错误测试的代码块<br>​        catch 语句允许我们定义当 try 代码块发生错误时，所执行的代码块</p>
-<p>​        try 和 catch 是成对出现的</p>
-<p>​    语法</p>
-<pre><code class="javascript">       try{
-            //在这里运行代码
-        }catch(err){
-            //在这里处理错误
-        }</code></pre>
-<p>​    创建或抛出异常<br>​        Throw 语句允许我们创建自定义错误<br>​<br>​        throw 与 try 和 catch 一起使用，能够控制程序流，并生成自定义的错误消息。</p>
-<p>​    语法<br>​        </p>
-<pre><code class="javascript">throw exception</code></pre>
-<pre><code class="html">&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-
-    &lt;input type=&quot;button&quot; value=&quot;View message&quot; onclick=&quot;message()&quot;&gt;
-
-    &lt;h1&gt;My First JavaScript&lt;/h1&gt;
-    &lt;p&gt;Please input a number between 5 and 10:&lt;/p&gt;
-    &lt;input id=&quot;demo&quot; type=&quot;text&quot;&gt;
-    &lt;button type=&quot;button&quot; onclick=&quot;myFunction()&quot;&gt;Test Input&lt;/button&gt;
-    &lt;p id=&quot;mess&quot;&gt;&lt;/p&gt;
-
-    &lt;script&gt;
-
-        var txt = &quot;&quot;;
-        function message(){
-            try{
-                addlert(&quot;Welcome!&quot;)
-            }catch(err){
-                txt = &quot;There was an error on this page.\n\n&quot;;
-                txt += &quot;Error description:&quot; + err.message + &quot;\n\n&quot;;
-                txt += &quot;Click OK to continue.\n\n&quot;;
-                alert(txt);
-            }
-        }
-
-        function myFunction(){
-            try{
-                var x = document.getElementById(&quot;demo&quot;).value;
-                if(x==&quot;&quot;)   throw &quot;empty&quot;;
-                if(isNaN(x)) throw &quot;not a number&quot;;
-                if(x&gt;10) throw &quot;too high&quot;;
-                if(x&lt;5) throw &quot;too low&quot;;
-            }catch(err){
-                var y = document.getElementById(&quot;mess&quot;);
-                y.innerHTML = &quot;Error:&quot; + err + &quot;.&quot;; 
-            }
-        }
-    &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-
+        
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
     </div>
@@ -623,12 +563,12 @@
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>JavaScript-try-catch</p>
+    <p><span class="copy-title">文章标题:</span>ES6基础-1</p>
     
     <p><span class="copy-title">本文作者:</span><a  title="xia xia">xia xia</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-12-15, 00:28:48</p>
-    <p><span class="copy-title">最后更新:</span>2020-02-10, 15:39:46</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/15/JavaScript-try-catch/" title="JavaScript-try-catch">http://yoursite.com/2019/12/15/JavaScript-try-catch/</a>
+    <p><span class="copy-title">发布时间:</span>2020-02-17, 16:09:55</p>
+    <p><span class="copy-title">最后更新:</span>2020-02-17, 16:16:52</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/02/17/ES6%E5%9F%BA%E7%A1%80-1/" title="ES6基础-1">http://yoursite.com/2020/02/17/ES6%E5%9F%BA%E7%A1%80-1/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
