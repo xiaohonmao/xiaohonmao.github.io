@@ -6,13 +6,15 @@
   <meta name="keywords" content=" 知识点 ">
   <meta name="description" content="ES6基础-1 | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="ES6基础ECMAScript标准 目的是为了让所有浏览器支持js 严格模式“use strict” 变量名必须声明后使用 参数名不能重复 不允许使用with 不能给只读属性赋值 不能使用八进制 不能删除不可删除属性 不要使用eval 不能使用 ​    arguments.callee ​    arguments.callee.caller 不要在顶层使用this 不要使用protected">
 <meta name="keywords" content="知识点">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ES6基础-1">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;17&#x2F;ES6%E5%9F%BA%E7%A1%80-1&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="ES6基础ECMAScript标准 目的是为了让所有浏览器支持js 严格模式“use strict” 变量名必须声明后使用 参数名不能重复 不允许使用with 不能给只读属性赋值 不能使用八进制 不能删除不可删除属性 不要使用eval 不能使用 ​    arguments.callee ​    arguments.callee.caller 不要在顶层使用this 不要使用protected">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-02-17T08:16:52.077Z">
+<meta property="og:updated_time" content="2020-02-18T11:56:21.224Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -512,7 +514,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-02-17 16:16:52'>2020-02-17 16:09</time>
+        创建时间:<time class="date" title='更新时间: 2020-02-18 19:56:21'>2020-02-17 16:09</time>
         
     </div>
     <div class="article-meta">
@@ -534,7 +536,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ES6基础"><span class="toc-text">ES6基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#严格模式"><span class="toc-text">严格模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Let和Const"><span class="toc-text">Let和Const</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#箭头函数"><span class="toc-text">箭头函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解构赋值"><span class="toc-text">解构赋值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSON"><span class="toc-text">JSON</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JSON用途"><span class="toc-text">JSON用途</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、用于比较"><span class="toc-text">1、用于比较</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、深复制"><span class="toc-text">2、深复制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、解构赋值"><span class="toc-text">3、解构赋值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#字符串扩展方法"><span class="toc-text">字符串扩展方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#symbol"><span class="toc-text">symbol</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#proxy-代理"><span class="toc-text">proxy 代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Set列表"><span class="toc-text">Set列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Map-–-gt-hashMap"><span class="toc-text">Map –&gt;hashMap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成器函数"><span class="toc-text">生成器函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类"><span class="toc-text">类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动画"><span class="toc-text">动画</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -550,7 +552,317 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="ES6基础"><a href="#ES6基础" class="headerlink" title="ES6基础"></a>ES6基础</h1><p>ECMAScript标准 目的是为了让所有浏览器支持js</p>
+<h2 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h2><p>“use strict”</p>
+<p>变量名必须声明后使用</p>
+<p>参数名不能重复</p>
+<p>不允许使用with</p>
+<p>不能给只读属性赋值</p>
+<p>不能使用八进制</p>
+<p>不能删除不可删除属性</p>
+<p>不要使用eval</p>
+<p>不能使用</p>
+<p>​    arguments.callee</p>
+<p>​    arguments.callee.caller</p>
+<p>不要在顶层使用this</p>
+<p>不要使用protected static interface</p>
+<pre><code class="javascript">var obj={
+    //ES5 对象语法
+    a:function(){
+        console.log(&quot;aaa&quot;);
+    },
+    //ES6 对象语法
+    b(a,b){
+        console.log(a+b);
+    }
+}
+obj.a();
+obj.b(10,20);</code></pre>
+<h2 id="Let和Const"><a href="#Let和Const" class="headerlink" title="Let和Const"></a>Let和Const</h2><p>var 定义全局变量，将会定义给window属性</p>
+<p>let 定义的全局变量，不会设置在window属性中</p>
+<p>let 定义的全局变量和window没有冲突关系</p>
+<p>如果函数中定义的局部变量与全局变量相同时，无法调用全局变量</p>
+<p>let定义的变量是有一定作用域的，针对块有作用域</p>
+<p>双重循环时不要使用相同变量 i</p>
+<p>const 定义常量 常量不能改变</p>
+<p>如果使用常量定义对象，对象的地址不能改变，但是对象属性是可以更改的</p>
+<pre><code class="javascript">const EVENT_ID=&quot;event_id&quot;;
+EVENT_ID=&quot;xiaxia&quot;; //报错</code></pre>
+<h2 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h2><p>箭头函数就是一个匿名函数</p>
+<pre><code class="javascript">bn.onclick=e=&gt;{}</code></pre>
+<p>如果函数中只有一条语句，可以不用写花括号，并且执行该函数时，返回最后一条语句的结果</p>
+<pre><code class="JavaScript">var fn=(a,b)=&gt;a+b;
+var fn=(a,b)=&gt;{a+b};
+//写{}后，表示内容就是函数体语句，不使用return时不返回
+//使用箭头函数后，没有参数或者两个及两个以上参数时都需要加括号
+//如果只有一个参数时，可以不加括号
+var fn=()=&gt;{console.log(&quot;aaa&quot;)};
+var fn1=(a,b,c)=&gt;{console.log(a,b,c)};
+var fn2=a=&gt;{console.log(a)};
+fn2(10);</code></pre>
+<p>使用箭头函数可以改变this指向</p>
+<p>箭头函数中的this就是箭头函数外this的执行</p>
+<p>这些方法中this都被强制指向了window</p>
+<p>​    setInterval、setTimeout、forEach、map、sort、filter、some、every、reduce、flatMap</p>
+<p>缺点：</p>
+<p>使用箭头函数通常都是匿名函数，如果使用addEventListener直接调用箭头函数，会造成该事件无法清除，因为箭头函数是匿名的</p>
+<p>使用箭头函数时会造成函数的嵌套</p>
+<p>如果在对象下所有方法都使用箭头函数，那么这些方法中的this都变成了window</p>
+<h2 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h2><pre><code class="javascript">//数组解构赋值会按照下标的顺序一一赋值
+let arr=[1,2,5];
+let [a,b,c]=arr;</code></pre>
+<pre><code class="javascript">//交换变量
+let a=5;
+let b=6;
+[a,b]=[b,a];</code></pre>
+<pre><code class="javascript">//以数组的方式带入参数
+function fn([a,b]){
+    console.log(a,b,a+b);
+}
+fn([5,4]);</code></pre>
+<pre><code class="javascript">//可以完成默认值的定义
+let [a,b=10]=[3];</code></pre>
+<pre><code class="javascript">//对象解构赋值不是按照顺序解构，而是按照属性名解构，意味着不能出现同名属性
+let obj={b:2,a:1,c:3};
+let {a,b,c}=obj;</code></pre>
+<pre><code class="javascript">//解构赋值尽量不要全局解构，最好使用函数内局部变量解构
+let obj={
+    p:[
+        &#39;hello&#39;,
+        {y:&#39;world&#39;}
+    ]
+};
+let {p:[a,{y}]}=obj;
+console.log(a,y);</code></pre>
+<pre><code class="javascript">//在函数的参数解构赋值中，如果是对象，里面的默认值必须使用=做设置
+function fn({a,b,c=100}){
+    console.log(a,b,c,a+b+c);
+}
+fn({c:10,a:5,b:6});</code></pre>
+<p>解构赋值仅适用于对象或者类的静态方法和属性</p>
+<p>Array.from();</p>
+<p>Array.isArray();</p>
+<h2 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h2><p>JSON.parse（JSON字符串）将JSON字符串转换为对象</p>
+<pre><code class="javascript">var str=&#39;{&quot;a&quot;:1,&quot;b&quot;:&quot;hello&quot;,&quot;c&quot;:[1,2,3,4]}&#39;;
+console.log(JSON.parse(str));</code></pre>
+<p>JSON.stringify（对象）将对象转换为JSON字符串</p>
+<pre><code class="javascript">let obj={a:1,b:2,c:[2,3,4]};
+console.log(JSON.stringify(obj));</code></pre>
+<h3 id="JSON用途"><a href="#JSON用途" class="headerlink" title="JSON用途"></a>JSON用途</h3><h4 id="1、用于比较"><a href="#1、用于比较" class="headerlink" title="1、用于比较"></a>1、用于比较</h4><pre><code class="javascript">var obj={a:1,b:2};
+var obj1={a:1,b:2};
+console.log(obj===obj1); //false
+console.log(JSON.stringify(obj)===JSON.stringify(obj1)); //true
+
+var arr=[1,2,3,4];
+var arr1=[1,2,3,4];
+console.log(arr.toString()===arr1.toString()); //true
+console.log(JSON.stringify(arr)===JSON.stringify(arr1)); //true</code></pre>
+<h4 id="2、深复制"><a href="#2、深复制" class="headerlink" title="2、深复制"></a>2、深复制</h4><pre><code class="javascript">let obj={a:1,b:2,c:[1,2,3],d:{a:1,b:2,c:{a:1,d:new Date()}}};
+let obj1=JSON.parse(JSON.stringify(obj));
+obj.d.c.a=100;
+console.log(obj,obj1); //obj1.d.c.a的值还是1</code></pre>
+<h4 id="3、解构赋值"><a href="#3、解构赋值" class="headerlink" title="3、解构赋值"></a>3、解构赋值</h4><p>将JSON字符串解构变量</p>
+<pre><code class="javascript">var str=&#39;{&quot;a&quot;:1,&quot;b&quot;:&quot;hello&quot;,&quot;c&quot;:[1,2,3,4]}&#39;;
+let {a,b,c:[d,e,f,g]}=JSON.parse(str);
+console.log(a,b,d,e,f,g);</code></pre>
+<h4 id="字符串扩展方法"><a href="#字符串扩展方法" class="headerlink" title="字符串扩展方法"></a>字符串扩展方法</h4><pre><code class="javascript">var str=&quot;abcdef&quot;;
+//返回bool，判断是否字符串中含有该字符
+console.log(str.includes(&quot;c&quot;));
+//返回bool，判断是否字符串由该字符串开始
+console.log(str.startswith(&quot;ab&quot;));
+//返回bool，判断是否字符串由该字符串结束
+console.log(str.endswith(&quot;ef&quot;));
+//重复字符串
+console.log(str.repeat(2));
+var str=Math.ceil(Math.random()*20).toString();
+//按照指定的长度，不足时在前面补充第二个参数字符
+console.log(str.padstart(2,&quot;0&quot;));
+//按照指定的长度，不足时在后面补充第二个参数字符
+console.log(str.padEnd(2,&quot;0&quot;));</code></pre>
+<pre><code class="javascript">let obj={a:1,b:2,c:{a:1}};
+//复制obj给obj1，浅复制
+let obj1={...obj};
+obj.c.a=10;
+let obj1={d:10};
+obj1={...obj};
+//如果obj1是有内容，这里复制时会覆盖（会重新指向新的引用地址）
+console.log(obj1);</code></pre>
+<pre><code class="javascript">//达到需要获取多个不确定参数的值
+//参数定义时，必填参数写在前面，有默认值参数写在后面，最后再写省略的多个参数arg
+function fn(a,b=4,...arg){
+    console.log(a,b,arg);
+}
+fn(3,4,5,6,7,8,9);</code></pre>
+<h2 id="symbol"><a href="#symbol" class="headerlink" title="symbol"></a>symbol</h2><p>不重复类型</p>
+<p>不希望对象的属性名重复，希望对象的属性名是唯一的</p>
+<p>希望变量比较时唯一</p>
+<p>这种类型唯一的方法就是转换为字符串</p>
+<pre><code class="javascript">console.log(symbol().toString());
+console.dir(symbol());</code></pre>
+<pre><code class="javascript">//消除魔术字符串
+//唯一性
+const RUN=symbol(); //const RUN=&quot;run&quot;
+const WALK=symbol();
+const PLAY=symbol();
+function fn(state){
+    switch(state){
+        case RUN:
+            console.log(&quot;run&quot;);
+            break;
+        case WALK:
+            console.log(&quot;walk&quot;);
+            break;
+        case PLAY:
+            console.log(&quot;play&quot;);
+            break;
+    }
+}
+fn(RUN); //fn(&quot;run&quot;);</code></pre>
+<p>案例</p>
+<pre><code class="javascript">let o={a:1}; let o=symbol();
+let a={a:2}; let a=symbol();
+let obj={
+    a:1,
+    b:2,
+    [o]:3,
+    //这样填入将对象引用地址作为属性名时，起始会自动将对象转为字符串[object object]
+    //如果使用o是symbol这个不会转为字符串，就会成为唯一指定的symbol类型
+    [symbol()]:4 //永远找不到
+}
+console.log(obj[o]);</code></pre>
+<h2 id="proxy-代理"><a href="#proxy-代理" class="headerlink" title="proxy 代理"></a>proxy 代理</h2><p>proxy是js的一个内置对象</p>
+<p>proxy用于定义基本操作的自定义行为。狭义的理解为，在做某个操作的时候，可以编码介入操作；广义的理解就是，如果一个对象，被另外一个对象代理，那么代理操作就相当于对于对象本身进行操作</p>
+<p>target被p代理，当对象中不存在属性名时，缺省返回数为37，直接对p设置属性后，target就拥有了相应的属性</p>
+<p>target——需要被proxy包装的对象，也就是需要被代理的对象</p>
+<p>handler——一个对象，其属性是当执行一个操作时定义代理的行为的函数</p>
+<pre><code class="javascript">let obj={a:1,_b:2};
+let handler={
+    //设置对象的属性值
+    set:function(target,key,value){
+        if(key.startswith&quot;_&quot;){
+            console.log(&quot;不能设置私有变量的值&quot;);
+            return;
+        }
+        target[key]=value;
+    },
+    //获取对象的属性值
+    get:function(target,key){
+        if(key.startswith&quot;_&quot;){
+            console.log(&quot;不能读取私有变量的值&quot;);
+            return;
+        }
+        return target[key];
+    },
+    //判断属性是否是对象的对象属性
+    has:function(target,key){
+        return key in target;
+    }
+};
+let p=new Proxy(obj,handler);
+console.log(&#39;_b&#39; in p); //true
+//p是obj的代理，p就可以完成对obj属性的操作
+//代理也可以完成新属性的添加</code></pre>
+<h2 id="Set列表"><a href="#Set列表" class="headerlink" title="Set列表"></a>Set列表</h2><p>数据不能重复，数据是松散结构</p>
+<p>不会因为添加删除改变而影响其他元素变化（不会有性能问题），是一个以数据为列表的容器</p>
+<p>可以进行遍历，有长度，只存储值，没有键</p>
+<p>set没有length，只有size</p>
+<p>set尽量需要将数据类型统一</p>
+<pre><code class="javascript">let divs=document.getElementsByTagName(&quot;div&quot;);
+let div0=document.querySelector(&quot;#div0&quot;);
+let a=new set(divs);
+//遍历
+for(let value of a){
+    console.log(value);
+}
+//判断值是否存在
+console.log(a.has(div0));
+//添加一个元素
+a.add(1);
+//删除某个元素
+a.delete(1);
+//清空
+a.clear();</code></pre>
+<p>数组去重</p>
+<pre><code class="javascript">let arr=[1,2,3,4,1,2,3,4,1,2,3,4];
+arr=Array.from(new set(arr));
+console.log(arr);</code></pre>
+<h2 id="Map-–-gt-hashMap"><a href="#Map-–-gt-hashMap" class="headerlink" title="Map –&gt;hashMap"></a>Map –&gt;hashMap</h2><pre><code class="javascript">let a=new Map();
+//设置键值对
+a.set(&quot;name&quot;,&quot;xiaxia&quot;);
+a.set(&quot;age&quot;,30);
+//获取键对应的值
+console.log(a.get(&quot;age&quot;));
+//判断是否有键名
+console.log(a.has(&quot;name&quot;));
+//清空所有数据
+a.clear();</code></pre>
+<pre><code class="javascript">for(let obj of a){
+    //以数组的形式显示键值对，0是键，1是值
+    console.log(obj);
+}</code></pre>
+<pre><code class="javascript">for(let value of a.entries()){
+    //和上面相同
+    console.log(value);
+}</code></pre>
+<pre><code class="javascript">for(let key of a.key){
+    //遍历所有的键名
+    console.log(key);
+}</code></pre>
+<pre><code class="javascript">for(let value of a.values()){
+    //遍历所有值，这里不关心键是什么，只列出有多少值
+    console.log(value);
+}</code></pre>
+<pre><code class="javascript">//forEach遍历
+a.forEach((value,key)=&gt;{
+    console.log(value,key);
+})</code></pre>
+<pre><code class="javascript">//map有长度
+console.log(a.size);</code></pre>
+<h2 id="生成器函数"><a href="#生成器函数" class="headerlink" title="生成器函数"></a>生成器函数</h2><pre><code class="javascript">//停止判断后执行
+function* abc(n,m){
+    yield n;
+    yield m;
+    var max = n &gt; m ? n : m;
+    yield max;
+    return max;
+}
+var a=abc(3,5);
+console.log(a.next());
+console.log(a.next());
+......</code></pre>
+<h2 id="类"><a href="#类" class="headerlink" title="类"></a>类</h2><p>类是对象的抽象化体现</p>
+<pre><code class="javascript">class Box{
+    //构造函数（按照结构创造对象的入口函数）
+    a=3;
+    //使用static创建属性和方法不是被构造出对象的
+    //它是类的
+    static b=4;
+    constructor(){
+
+    }
+    play(){
+        console.log(this.a);
+    }
+    static run(){
+        console.log(&quot;aaa&quot;);
+    }
+}
+//new一个对象，构造对象，实例化对象
+let b=new Box();
+//对象就是类的具现化体现，具现化就是实例化
+console.log(b.a);
+b.play();
+console.log(Box.b);
+Box.run();</code></pre>
+<h2 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h2><pre><code class="javascript">var time=new Date().getTime();
+animation();
+function animation(){
+    //请求动画帧
+    cancelAnimationFrame(ids);
+    console.log(new Date().getTime()-time);
+    time=new Date.getTime();
+}</code></pre>
+
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
     </div>
@@ -567,7 +879,7 @@
     
     <p><span class="copy-title">本文作者:</span><a  title="xia xia">xia xia</a></p>
     <p><span class="copy-title">发布时间:</span>2020-02-17, 16:09:55</p>
-    <p><span class="copy-title">最后更新:</span>2020-02-17, 16:16:52</p>
+    <p><span class="copy-title">最后更新:</span>2020-02-18, 19:56:21</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/02/17/ES6%E5%9F%BA%E7%A1%80-1/" title="ES6基础-1">http://yoursite.com/2020/02/17/ES6%E5%9F%BA%E7%A1%80-1/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
